@@ -90,7 +90,7 @@
                         <ul>
                             <li class="active"><a href="./index.html">Home</a></li>
                             <li><a href="./about.html">About</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
+                            <li><a href="product.do">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>

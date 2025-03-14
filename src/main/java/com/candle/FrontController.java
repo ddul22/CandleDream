@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
 import com.candle.control.MainControl;
+import com.candle.control.ProductControl;
 
 public class FrontController extends HttpServlet {
 	Map<String, Control> map;
@@ -26,7 +27,7 @@ public class FrontController extends HttpServlet {
 		// 김민식
 		
 		// 김어진
-		
+		map.put("/product.do", new ProductControl()); // 전체상품목록.
 		// 정은총
 		
 		// 김지수
