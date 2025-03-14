@@ -16,10 +16,13 @@
 					value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url"
 					value="jdbc:oracle:thin:@localhost:1521:xe" />
-				<property name="username" value="hr" />
-				<property name="password" value="hr" />
+				<property name="username" value="candle" />
+				<property name="password" value="dream" />
 			</dataSource>
 		</environment>
 	</environments>
-
+	
+	<mappers>
+		<package name="com.candle.mapper" />
+	</mappers>
 </configuration>

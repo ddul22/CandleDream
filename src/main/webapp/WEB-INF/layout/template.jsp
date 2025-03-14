@@ -36,12 +36,10 @@
     <!-- Header Section Begin -->
 	<tiles:insertAttribute name="header" />
     <!-- Header Section End -->
-
+	<tiles:insertAttribute name="body" />
     <!-- Footer Section Begin -->
 	<tiles:insertAttribute name="footer" />
-<!-- Footer Section End -->
-
-
+	<!-- Footer Section End -->
 
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
