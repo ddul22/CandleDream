@@ -15,4 +15,5 @@
 	from candle_item 
 	where item_no = #{itemNo}
 	</select> -->
+
 </mapper>

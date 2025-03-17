@@ -17,6 +17,7 @@ import com.candle.control.LoginControl;
 import com.candle.control.LoginFormControl;
 import com.candle.control.LogoutControl;
 import com.candle.control.MainControl;
+import com.candle.control.MainDataControl;
 import com.candle.control.PaymentControl;
 import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
@@ -30,9 +31,9 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		//
-		map.put("/main.do", new MainControl());
 		// 김민식
+		map.put("/main.do", new MainControl());
+		map.put("/mainData.do", new MainDataControl());
 
 		// 김어진
 		map.put("/product.do", new ProductControl()); // 전체상품목록.

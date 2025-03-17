@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class ItemVO {
-
 	private int itemNo;
 	private int typeNo;
 	private String itemName;
@@ -13,7 +12,6 @@ public class ItemVO {
 	private int itemPriceSale;
 	private int itemSale;
 	private int itemStatus;
-
 	private int orderItemNo;
 	private int orderNo;
 	private int orderItemCount;
