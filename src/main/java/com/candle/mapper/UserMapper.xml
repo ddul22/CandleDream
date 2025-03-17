@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.candle.mapper.UserMapper">
+
+ <select id="order" resultType="com.candle.vo.OrderVO" parameterType="int">
+ 	select * from candle_order where order_status = 0 and user_no = #{userNo}
+ </select>
+ 
+ <select id="item" resultType="com.candle.vo.ItemVO" parameterType="int">
+ 	select *
+	from candle_item i join candle_order_item o
+                    on i.item_no = o.item_no
+                    where order_no = #{orderNo}
+ </select>
+ 
+ 
+</mapper>
