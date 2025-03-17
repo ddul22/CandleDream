@@ -8,7 +8,7 @@
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
 	<typeAliases>
-		<typeAlias alias="user" type="com.candle.vo.UserVO"/>
+		<typeAlias alias="user" type="com.candle.vo.UserVO" />
 	</typeAliases>
 
 	<environments default="development">
@@ -24,9 +24,9 @@
 			</dataSource>
 		</environment>
 	</environments>
-	
+
 	<mappers>
-<!--  		<package name="com.candle.mapper" />-->
-		<mapper resource="com/candle/mapper/CandleMapper2.xml"/>
+		<package name="com.candle.mapper" />
+		<!-- <mapper resource="com/candle/mapper/CandleMapper2.xml"/> -->
 	</mappers>
 </configuration>
