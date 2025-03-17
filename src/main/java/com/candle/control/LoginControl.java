@@ -11,7 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.candle.common.Control;
 import com.candle.common.DataSource;
-import com.candle.mapper.CandleMapper2;
+import com.candle.mapper.JisuMapper;
 import com.candle.vo.UserVO;
 
 public class LoginControl implements Control {
@@ -22,7 +22,7 @@ public class LoginControl implements Control {
 		String id = req.getParameter("id");
 		String pwd = req.getParameter("pwd");
 		SqlSession sqlSession=DataSource.getInstance().openSession();
-		CandleMapper2 mapper = sqlSession.getMapper(CandleMapper2.class);
+		JisuMapper mapper = sqlSession.getMapper(JisuMapper.class);
 		UserVO user = mapper.login(id, pwd);
 		System.out.println("id->"+id+"pwd->"+pwd);
 		

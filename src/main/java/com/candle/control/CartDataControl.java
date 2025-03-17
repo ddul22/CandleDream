@@ -11,7 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.candle.common.Control;
 import com.candle.common.DataSource;
-import com.candle.mapper.UserMapper;
+import com.candle.mapper.EunMapper;
 import com.candle.vo.ItemVO;
 import com.candle.vo.OrderVO;
 import com.google.gson.Gson;
@@ -27,7 +27,7 @@ public class CartDataControl implements Control {
 		String userNo = req.getParameter("userNo");
 		
 		SqlSession sqlSession = DataSource.getInstance().openSession();
-		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		EunMapper mapper = sqlSession.getMapper(EunMapper.class);
 		
 		OrderVO order = mapper.order(Integer.parseInt(userNo));
 		List<ItemVO> list = mapper.item(order.getOrderNo());

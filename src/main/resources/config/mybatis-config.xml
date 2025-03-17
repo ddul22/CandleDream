@@ -9,6 +9,8 @@
 	</settings>
 	<typeAliases>
 		<typeAlias alias="user" type="com.candle.vo.UserVO" />
+		<typeAlias alias="item" type="com.candle.vo.ItemVO" />
+		<typeAlias alias="order" type="com.candle.vo.OrderVO" />
 	</typeAliases>
 
 	<environments default="development">

@@ -11,7 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.candle.common.Control;
 import com.candle.common.DataSource;
-import com.candle.mapper.CandleMapper;
+import com.candle.mapper.EohMapper;
 import com.candle.vo.ItemVO;
 import com.candle.vo.PageVO;
 
@@ -31,7 +31,7 @@ public class ProductControl implements Control {
 
 		
 		SqlSession sqlSession = DataSource.getInstance().openSession();
-		CandleMapper mapper = sqlSession.getMapper(CandleMapper.class);
+		EohMapper mapper = sqlSession.getMapper(EohMapper.class);
 		List<ItemVO> product = mapper.selectAll();
 		req.setAttribute("product", product);
 		req.getRequestDispatcher("candle/itemInfo.tiles").forward(req, resp);
