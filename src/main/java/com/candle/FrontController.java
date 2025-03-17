@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
+import com.candle.control.CartControl;
+import com.candle.control.CartDataControl;
 import com.candle.control.MainControl;
+import com.candle.control.PaymentControl;
 import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
 
@@ -24,16 +27,21 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// 
+		//
+		map.put("/main.do", new MainControl());
 		// 김민식
-		
+
 		// 김어진
 		map.put("/product.do", new ProductControl()); // 전체상품목록.
-		map.put("/productDetail.do", new ProductDetailControl()); // 상품상세조회. 
+		map.put("/productDetail.do", new ProductDetailControl()); // 상품상세조회.
+
 		// 정은총
-		
+		map.put("/cart.do", new CartControl());
+		map.put("/cartData.do", new CartDataControl());
+		map.put("/payment.do", new PaymentControl());
+
 		// 김지수
-		map.put("/main.do", new MainControl());
+
 	}
 
 	@Override
