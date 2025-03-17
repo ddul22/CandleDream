@@ -1,12 +1,8 @@
 package com.candle.vo;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
+@Data
 public class UserVO {
 	private int userNo;
 	private String userId;
@@ -14,7 +10,7 @@ public class UserVO {
 	private String userName;
 	private String userTel;
 	private String userEmail;
-	private String userAdd;
-	private int point;
+	private String userAddress;
+	private int userPoint;
 	private int userType;
 }

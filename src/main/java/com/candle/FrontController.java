@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.candle.common.Control;
 import com.candle.control.CartControl;
 import com.candle.control.CartDataControl;
+import com.candle.control.LoginControl;
+import com.candle.control.LoginFormControl;
+import com.candle.control.LogoutControl;
 import com.candle.control.MainControl;
 import com.candle.control.PaymentControl;
 import com.candle.control.ProductControl;
@@ -41,7 +44,9 @@ public class FrontController extends HttpServlet {
 		map.put("/payment.do", new PaymentControl());
 
 		// 김지수
-
+		map.put("/login.do", new LoginControl());
+		map.put("/loginForm.do", new LoginFormControl());
+		map.put("/logout.do", new LogoutControl());
 	}
 
 	@Override

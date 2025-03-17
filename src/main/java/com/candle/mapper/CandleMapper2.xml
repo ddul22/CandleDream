@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.candle.mapper.CandleMapper2">
+  <select id="userList" resultType="user" parameterType="String">
+  		SELECT user_id,
+       		   user_pwd
+		FROM candle_user
+		WHERE user_id=#{userId}
+		AND user_pwd=#{userPwd}		
+  </select>
+  
+  <select id="login" resultType="user">
+  select * 
+  from candle_user
+  where user_id=#{userId}
+  and user_pwd=#{userPwd}
+  
+  </select>
+  
+  
+  </mapper>
