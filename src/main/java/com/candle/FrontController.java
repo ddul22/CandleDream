@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
+import com.candle.control.LoginControl;
+import com.candle.control.LoginFormControl;
+import com.candle.control.LogoutControl;
 import com.candle.control.MainControl;
 import com.candle.control.ProductControl;
 
@@ -32,6 +35,11 @@ public class FrontController extends HttpServlet {
 		
 		// 김지수
 		map.put("/main.do", new MainControl());
+		map.put("/login.do", new LoginControl());
+		map.put("/loginForm.do", new LoginFormControl());
+		map.put("/logout.do", new LogoutControl());
+		
+		
 	}
 
 	@Override
