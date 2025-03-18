@@ -17,18 +17,14 @@
 							</div>
 							<c:choose>
 								<c:when test="${empty loginId  }">
-									<div class="header__top__right__cart">
-										<div class="cart__price">
-											<span><a href="login.do">Login</a></span>
-										</div>
-									</div>
+
 								</c:when>
 
 								<c:otherwise>
 
 								</c:otherwise>
 							</c:choose>
-							
+
 							<div class="header__top__right__cart">
 								<div class="cart__price">
 									<span><a href="myPagePoint.do">MyPage</a></span>
@@ -36,7 +32,12 @@
 							</div>
 							<div class="header__top__right__cart">
 								<div class="cart__price">
-									<span><a href="login.do">Login</a></span>
+									<span><a href="loginForm.do">Login</a></span>
+								</div>
+							</div>
+							<div class="header__top__right__cart">
+								<div class="cart__price">
+									<span><a href="logout.do">Logout</a></span>
 								</div>
 							</div>
 						</div>
