@@ -13,7 +13,7 @@
 		<level value="debug" />
 	</logger>
 	
-	<logger name="com.candle.mapper.ItemMapper">
+	<logger name="com.candle.mapper.EohMapper">
 		<level value="debug" />
 	</logger>
 

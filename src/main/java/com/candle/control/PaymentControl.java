@@ -15,7 +15,8 @@ public class PaymentControl implements Control {
 		// TODO Auto-generated method stub
 		
 		req.getRequestDispatcher("candle/payment.tiles").forward(req, resp);
-
+		
+		
 	}
 
 }
