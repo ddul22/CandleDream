@@ -10,22 +10,22 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.candle.common.Control;
 import com.candle.common.DataSource;
-import com.candle.mapper.EohMapper;
-import com.candle.vo.ItemVO;
+import com.candle.mapper.JisuMapper;
+import com.candle.vo.QnaVO;
 
-public class ProductDetailControl implements Control {
+public class QnaControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String itemNo = req.getParameter("itemNo");
-
-		SqlSession sqlSession = DataSource.getInstance().openSession();
-		EohMapper mapper = sqlSession.getMapper(EohMapper.class);
-		ItemVO product = mapper.itemInfo(itemNo);
-		req.setAttribute("product", product);
+		String qno = req.getParameter("qno");
 		
-		req.getRequestDispatcher("candle/productDetail.tiles").forward(req, resp);
-		// candle/productDetail.tiles => productDetail.jsp를 만들어야함.
+		SqlSession sqlSession = DataSource.getInstance().openSession();
+		JisuMapper mapper = sqlSession.getMapper(JisuMapper.class);
+		
+		QnaVO qna = mapper.getQna(Integer.parseInt(qno)); 
+		
+		req.setAttribute("qno", qno);
+		req.getRequestDispatcher("candle/qna.tiles").forward(req, resp);
 	}
 
 }

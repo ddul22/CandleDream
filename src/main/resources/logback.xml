@@ -8,8 +8,16 @@
 			<pattern>%5level [%thread] - %msg%n</pattern>
 		</encoder>
 	</appender>
-	
+
 	<logger name="com.candle.mapper.SikMapper">
+		<level value="debug" />
+	</logger>
+
+	<logger name="com.candle.mapper.JisuMapper">
+		<level value="debug" />
+	</logger>
+	
+	<logger name="com.candle.mapper.EohMapper">
 		<level value="debug" />
 	</logger>
 

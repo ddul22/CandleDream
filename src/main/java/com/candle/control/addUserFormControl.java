@@ -8,15 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
 
-public class PaymentControl implements Control {
+public class addUserFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		req.getRequestDispatcher("candle/payment.tiles").forward(req, resp);
-		
-		
+		req.getRequestDispatcher("candle/signup.tiles").forward(req, resp);
 	}
 
 }

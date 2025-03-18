@@ -34,7 +34,6 @@
 									<span><a href="myPagePoint.do">MyPage</a></span>
 								</div>
 							</div>
-
 							<div class="header__top__right__cart">
 								<div class="cart__price">
 									<span><a href="login.do">Login</a></span>

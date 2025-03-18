@@ -10,10 +10,25 @@
 	</select>	
 	
 	<!-- 상세상품 조회 -->
-	<!--  <select id="selectOne" resultType="com.candle.vo.ItemVO" parameterType="int">
+	<select id="itemInfo" resultType="com.candle.vo.ItemVO" parameterType="String">
 	select * 
-	from candle_item 
+	from candle_item	
 	where item_no = #{itemNo}
-	</select> -->
+	</select> 
+
+	<insert id="orderInfo" parameterType="com.candle.vo.AddCartVO" >
+    <selectKey keyProperty="orderNo" resultType="int" order="BEFORE">
+      select max(order_no) + 1 from candle_order
+    </selectKey>
+	insert into candle_order (order_no, user_no, sysdate, order_status, item_no)
+	values(#{orderNo}, #{userNo}, sysdate, 0, #{itemNo})
+	</insert>
+	
+	<select id = "orderNo" resultType = "int" parameterType="int">
+	select order_no
+	from candle_oder 
+	where order_status = 0 
+	and user_no = #{userNo}
+	</select>
 
 </mapper>

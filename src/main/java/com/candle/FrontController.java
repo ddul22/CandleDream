@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
+
+import com.candle.control.AddUserControl;
+import com.candle.control.AddCartControl;
 import com.candle.control.CartControl;
 import com.candle.control.CartDataControl;
 import com.candle.control.LoginControl;
@@ -22,8 +25,12 @@ import com.candle.control.MyPageInfoControl;
 import com.candle.control.MyPageOrderControl;
 import com.candle.control.MyPagePointControl;
 import com.candle.control.PaymentControl;
+import com.candle.control.PaymentDataControl;
+import com.candle.control.PointControl;
 import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
+import com.candle.control.QnaControl;
+import com.candle.control.addUserFormControl;
 
 public class FrontController extends HttpServlet {
 	Map<String, Control> map;
@@ -44,16 +51,22 @@ public class FrontController extends HttpServlet {
 		// 김어진
 		map.put("/product.do", new ProductControl()); // 전체상품목록.
 		map.put("/productDetail.do", new ProductDetailControl()); // 상품상세조회.
-
+		map.put("/addCart.do", new AddCartControl()); // 장바구니 상품담기.
+		
 		// 정은총
 		map.put("/cart.do", new CartControl());
 		map.put("/cartData.do", new CartDataControl());
 		map.put("/payment.do", new PaymentControl());
+		map.put("/paymentData.do", new PaymentDataControl());
+		map.put("/point.do", new PointControl());
 
 		// 김지수
 		map.put("/login.do", new LoginControl());
 		map.put("/loginForm.do", new LoginFormControl());
 		map.put("/logout.do", new LogoutControl());
+		map.put("/addUserForm.do", new addUserFormControl());
+		map.put("/addUser.do", new AddUserControl());
+		map.put("/qna.do", new QnaControl());
 	}
 
 	@Override

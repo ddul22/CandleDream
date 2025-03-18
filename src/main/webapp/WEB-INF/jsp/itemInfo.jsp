@@ -39,18 +39,18 @@
 					<div class="product__item">
 					<a href = "productDetail.do?itemNo=${candle.itemNo }">
 						<div class="product__item__pic set-bg"
-							data-setbg="img/shop/product-1.jpg">
+							data-setbg="${candle.itemImagePath }">
 							<div class="product__label">
-								<span><c:out value="${candle.typeNo }" /></span>
+								<span><c:out value="${candle.itemNo }" /></span>
 							</div>
 						</div>
 						</a>
 						<div class="product__item__text">
 							<h6>
-								<a href="#">${candle.itemNo }</a>
+								<a href="#">${candle.itemName }</a>
 							</h6>
 							<div class="product__item__price">
-								<c:out value="${candle.itemPrice }"></c:out>
+								<c:out value="${candle.itemPrice }원"></c:out>
 							</div>
 							<div class="cart_add">
 								<a href="#">Add to cart</a>
