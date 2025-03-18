@@ -16,7 +16,7 @@
 							</div>
 							<div class="header__top__right__cart">
 								<div class="cart__price">
-									<span>Login</span>
+									<a href="loginForm.do"><span>Login</span></a>
 								</div>
 							</div>
 						</div>

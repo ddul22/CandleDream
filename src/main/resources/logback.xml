@@ -9,7 +9,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.candle.mapper.UserMapper">
+	<logger name="com.candle.mapper.JisuMapper">
 		<level value="debug" />
 	</logger>
 	
