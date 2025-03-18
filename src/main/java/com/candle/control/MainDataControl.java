@@ -22,6 +22,8 @@ public class MainDataControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		resp.setContentType("application/json;charset=utf-8");
 
 		SqlSessionFactory factory = DataSource.getInstance();
 		SqlSession session = factory.openSession(true);

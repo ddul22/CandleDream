@@ -18,6 +18,9 @@ import com.candle.control.LoginFormControl;
 import com.candle.control.LogoutControl;
 import com.candle.control.MainControl;
 import com.candle.control.MainDataControl;
+import com.candle.control.MyPageInfoControl;
+import com.candle.control.MyPageOrderControl;
+import com.candle.control.MyPagePointControl;
 import com.candle.control.PaymentControl;
 import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
@@ -34,6 +37,9 @@ public class FrontController extends HttpServlet {
 		// 김민식
 		map.put("/main.do", new MainControl());
 		map.put("/mainData.do", new MainDataControl());
+		map.put("/myPagePoint.do", new MyPagePointControl());
+		map.put("/myPageInfo.do", new MyPageInfoControl());
+		map.put("/myPageOrder.do", new MyPageOrderControl());
 
 		// 김어진
 		map.put("/product.do", new ProductControl()); // 전체상품목록.
