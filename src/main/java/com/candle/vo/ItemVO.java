@@ -16,4 +16,8 @@ public class ItemVO {
 	private int orderNo;
 	private int orderItemCount;
 	private int orderItemPrice;
+	private String itemImagePath;
+	private String itemInfo;
+	private int userNo;
+	private int orderStatus;
 }
