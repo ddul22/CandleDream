@@ -32,6 +32,7 @@ public class LoginControl implements Control {
 			resp.sendRedirect("main.do"); 
 			System.out.println("로그인잘됨");
 		}else {
+			req.setAttribute("msg", "1");
 			req.getRequestDispatcher("candle/login.tiles").forward(req, resp);	
 			System.out.println("로그인안됨");
 		}

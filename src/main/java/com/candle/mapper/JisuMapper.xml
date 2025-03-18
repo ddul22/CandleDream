@@ -20,5 +20,13 @@
   
   </select>
   
+  	<insert id="insertUser" parameterType="map">
+
+		insert into candle_user values((select max(user_no) + 1 from candle_user),
+		#{userId},#{userPwd},#{userName},#{userTel},#{userEmail},#{userAddress}, 0, 0)
+	</insert>
+  
+
+  
   
   </mapper>
