@@ -16,4 +16,16 @@
                     where order_no = #{orderNo}
  </select>
  
+ <select id="user" resultType="com.candle.vo.UserVO" parameterType="int">
+	select * 
+	from candle_user where user_no = #{userNo}
+ </select>
+ 
+ <update id="point" parameterType="int">
+ 	update candle_user set user_point = user_point - #{totalPrice} where user_no = #{userNo} 
+ </update>
+ 
+ <update id="status" parameterType="int">
+ 	update candle_order set order_status = 2 where order_no = #{orderNo}
+ </update>
 </mapper>
