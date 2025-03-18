@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <header class="header">
 	<div class="header__top">
 		<div class="container">
@@ -8,15 +9,34 @@
 					<div class="header__top__inner">
 						<div class="header__top__left"></div>
 						<div class="header__logo">
-							<a href="./index.html"><img src="img/logo.png" alt=""></a>
+							<a href="main.do"><img src="img/logo.png" alt=""></a>
 						</div>
 						<div class="header__top__right">
 							<div class="header__top__right__cart">
 								<a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
 							</div>
+							<c:choose>
+								<c:when test="${empty loginId  }">
+									<div class="header__top__right__cart">
+										<div class="cart__price">
+											<span><a href="login.do">Login</a></span>
+										</div>
+									</div>
+								</c:when>
+
+								<c:otherwise>
+
+								</c:otherwise>
+							</c:choose>
+							
 							<div class="header__top__right__cart">
 								<div class="cart__price">
-									<a href="loginForm.do"><span>Login</span></a>
+									<span><a href="myPagePoint.do">MyPage</a></span>
+								</div>
+							</div>
+							<div class="header__top__right__cart">
+								<div class="cart__price">
+									<span><a href="login.do">Login</a></span>
 								</div>
 							</div>
 						</div>
