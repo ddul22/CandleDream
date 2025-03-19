@@ -9,10 +9,10 @@
 					<div class="shop__option__search">
 						<form action="#">
 							<select>
-								<option value="">Categories</option>
-								<option value="">Red Velvet</option>
-								<option value="">Cup Cake</option>
-								<option value="">Biscuit</option>
+								<option value="CY">Categories</option>
+								<option value="C">Candle</option>
+								<option value="Y">Yankee</option>
+								
 							</select> <input type="text" placeholder="Search">
 							<button type="submit">
 								<i class="fa fa-search"></i>

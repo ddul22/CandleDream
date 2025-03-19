@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.candle.vo.ContactVO;
 import com.candle.vo.ItemVO;
 import com.candle.vo.OrderVO;
 import com.candle.vo.UserVO;
@@ -15,4 +16,5 @@ public interface EunMapper {
 	public UserVO user(int userNo);
 	public int point(@Param("totalPrice") int totalPrice, @Param("userNo") int userNo);
 	public int status(int orderNo);
+	public int contact(ContactVO contact);
 }

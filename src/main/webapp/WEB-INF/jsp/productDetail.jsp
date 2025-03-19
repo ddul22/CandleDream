@@ -61,10 +61,10 @@
                         <div class="product__details__option">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input id="countPr" type="text" value="1">
                                 </div>
                             </div>
-                            <a href="addCart.do?userNo=1&productNo=${product.itemNo }" class="primary-btn">Add to cart</a>
+                            <button class="primary-btn" id = "addBtn">Add to cart</button>
                             <a href="#" class="heart__btn"><span class="icon_heart_alt"></span></a>
                         </div>
                     </div>
@@ -134,3 +134,19 @@
     </div>
 </div>
 <!-- Search End -->
+<script>
+
+document.querySelector("#addBtn").addEventListener('click', function(){ 
+	let countPr = document.querySelector("#countPr").value;
+	console.log(countPr);
+	console.log("${userNo}");
+	fetch('addCart.do?itemNo=' + "${product.itemNo }" + 
+			'&userNo=' + "${userNo }" +
+			'&orderItemCount=' + countPr + '&orderItemPrice=' + "${product.itemPrice}")
+	.then((result) => result.json())
+	.then((result) => {
+		console.log(result);
+	})
+	.catch((error) => console.log(error));
+})
+</script>

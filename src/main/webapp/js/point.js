@@ -7,10 +7,13 @@ const pointService = {
 			.catch(errorCallback) // 에러시 실행할 함수.
 	}
 }
+document.querySelector('').addEventListener('click', function(e) {
 
-pointService.get((result) => {
-	console.log(result);
-	alert("결제가 완료되었습니다!")
-}, (error) => {
-	alert("결제가 거부되었습니다. 다시 시도하세요.")
-});
+	pointService.get((result) => {
+		console.log(result);
+		alert("결제가 완료되었습니다!")
+	}, (error) => {
+		console.log(error);
+		alert("결제가 거부되었습니다. 다시 시도하세요.")
+	})
+})
