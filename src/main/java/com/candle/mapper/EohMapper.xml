@@ -20,15 +20,15 @@
     <selectKey keyProperty="orderNo" resultType="int" order="BEFORE">
       select max(order_no) + 1 from candle_order
     </selectKey>
-	insert into candle_order (order_no, user_no, sysdate, order_status, item_no)
-	values(#{orderNo}, #{userNo}, sysdate, 0, #{itemNo})
+	insert into candle_order (order_no, user_no, SYSDATE, order_status, item_no)
+	values(#{orderNo}, #{userNo}, SYSDATE, 0, #{itemNo})
 	</insert>
-	
+							<!--java.lang.Integer-->
 	<select id = "orderNo" resultType = "int" parameterType="int">
 	select order_no
-	from candle_oder 
-	where order_status = 0 
-	and user_no = #{userNo}
+	from candle_order 
+	where user_no = #{userNo}
+	anb order_status = 0 
 	</select>
 
 </mapper>
