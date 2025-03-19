@@ -10,5 +10,4 @@ public class AddCartVO {
 	private int userNo;
 	private Date orderDate;
 	private int orderStatus;
-	private int itemNo;
 }
