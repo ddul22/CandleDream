@@ -14,7 +14,7 @@ public class MyPageOrderControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		req.getRequestDispatcher("candle/myPageOrder.tiles").forward(req, resp);
+		req.getRequestDispatcher("mypage/myPageOrder.tiles").forward(req, resp);
 	}
 
 }

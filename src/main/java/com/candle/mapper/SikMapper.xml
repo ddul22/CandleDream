@@ -5,8 +5,44 @@
 <mapper namespace="com.candle.mapper.SikMapper">
 
 	<select id="selectNewItem" resultType="item">
-		select rownum, i.* from (select * from candle_item order by item_no desc) i
-		where rownum between 1 and 3
+		select rownum, i.* from
+		(select * from candle_item order by item_no desc) i
+		where rownum
+		between 1 and 3
 	</select>
 
+	<select id="selectUser" resultType="user" parameterType="int">
+		select *
+		from candle_user
+		where user_no = #{userNo}
+	</select>
+
+	<update id="updateUserPoint">
+		update candle_user
+		set user_point = user_point +
+		#{point}
+		where user_no = #{userNo}
+	</update>
+
+	<update id="updateUser">
+		update candle_user
+		set user_tel = #{userTel},
+		user_address = #{userAddress},
+		user_email =
+		#{userEmail}
+		where user_no =
+		#{userNo}
+	</update>
+
+	<select id="getOrderList" parameterType="int" resultType="order">
+		select
+		* from candle_order where user_no = #{userNo}
+	</select>
+
+	<select id="getOrderItemList" parameterType="int" resultType="item">
+		select oi.*, i.item_name
+		from candle_order_item oi
+		join candle_item i on oi.item_no = i.item_no
+		where order_no = #{orderNo}
+	</select>
 </mapper>

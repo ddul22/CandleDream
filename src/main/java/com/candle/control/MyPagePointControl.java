@@ -14,7 +14,7 @@ public class MyPagePointControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		req.getRequestDispatcher("candle/myPagePoint.tiles").forward(req, resp);
+		req.getRequestDispatcher("mypage/myPagePoint.tiles").forward(req, resp);
 	}
 
 }

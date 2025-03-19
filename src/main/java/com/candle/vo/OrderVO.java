@@ -1,6 +1,7 @@
 package com.candle.vo;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -11,4 +12,5 @@ public class OrderVO {
 	private Date date;
 	private int orderStatus;
 	private int orderPrice;
+	private List<ItemVO> itemList;
 }
