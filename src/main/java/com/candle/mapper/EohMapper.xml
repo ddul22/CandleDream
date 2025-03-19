@@ -4,9 +4,16 @@
 
 <mapper namespace="com.candle.mapper.EohMapper">
 	<!-- 전체상품 조회 -->
-	<select id="selectAll" resultType="com.candle.vo.ItemVO">
-	select * 
-	from candle_item
+	<select id="selectAll" resultType="item" parameterType="search">
+	select * from candle_item
+	<choose>
+		<when test="searchCondition == 'C'.toString()">
+			where type_no = 1
+		</when>
+		<when test = "searchCondition == 'Y'.toString()">
+			where type_no = 2
+		</when>
+	</choose>
 	</select>	
 	
 	<!-- 상세상품 조회 -->
@@ -14,21 +21,42 @@
 	select * 
 	from candle_item	
 	where item_no = #{itemNo}
-	</select> 
-
+	</select>
+	 
+	<!-- 상세상품조회에서 장바구니 담기 -->
 	<insert id="orderInfo" parameterType="com.candle.vo.AddCartVO" >
     <selectKey keyProperty="orderNo" resultType="int" order="BEFORE">
-      select max(order_no) + 1 from candle_order
+    select max(order_no) + 1 from candle_order
     </selectKey>
-	insert into candle_order (order_no, user_no, SYSDATE, order_status, item_no)
-	values(#{orderNo}, #{userNo}, SYSDATE, 0, #{itemNo})
+	insert into candle_order (order_no, user_no, order_date, order_status, order_price)
+	values(#{orderNo}, #{userNo}, SYSDATE, 0, 0)
 	</insert>
-							<!--java.lang.Integer-->
+	
+	<insert id ="orderItemInfo" parameterType="com.candle.vo.AddCartItemVO">
+	insert into candle_order_item (order_item_no, order_no, item_no, order_item_count, order_item_price)
+	values ((select max(order_item_no) + 1 from candle_order_item), #{orderNo}, #{itemNo}, #{orderItemCount}, #{orderItemPrice})
+	</insert>	
+						<!--java.lang.Integer-->
 	<select id = "orderNo" resultType = "int" parameterType="int">
 	select order_no
 	from candle_order 
 	where user_no = #{userNo}
-	anb order_status = 0 
+	and order_status = 0 
 	</select>
-
+	
+	<update id="checkOrder" parameterType = "com.candle.vo.AddCartItemVO">
+	merge
+	into candle_order_item
+	using dual
+	on (order_no = #{orderNo} AND item_no = #{itemNo}) 
+	when matched then 
+			update set order_item_count = order_item_count +#{orderItemCount}
+	when not matched then
+			insert (order_item_no, order_no, item_no, order_item_count, order_item_price)
+			values ((select max(order_item_no) + 1 from candle_order_item), #{orderNo}, #{itemNo}, #{orderItemCount}, #{orderItemPrice})
+	</update>
+	
+	
+	
+	
 </mapper>
