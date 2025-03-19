@@ -32,6 +32,7 @@ import com.candle.control.PointControl;
 import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
 import com.candle.control.QnaControl;
+import com.candle.control.SearchControl;
 import com.candle.control.AddUserFormControl;
 
 public class FrontController extends HttpServlet {
@@ -54,6 +55,7 @@ public class FrontController extends HttpServlet {
 		map.put("/product.do", new ProductControl()); // 전체상품목록.
 		map.put("/productDetail.do", new ProductDetailControl()); // 상품상세조회.
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 상품담기.
+		map.put("/search.do", new SearchControl()); // 전체상품목록 검색.
 		
 		// 정은총
 		map.put("/cart.do", new CartControl());

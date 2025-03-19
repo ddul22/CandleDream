@@ -12,6 +12,7 @@
 		<typeAlias alias="item" type="com.candle.vo.ItemVO" />
 		<typeAlias alias="order" type="com.candle.vo.OrderVO" />
 		<typeAlias alias="contact" type="com.candle.vo.ContactVO" />
+		<typeAlias alias="search" type="com.candle.vo.SearchVO" />
 	</typeAliases>
 
 	<environments default="development">
