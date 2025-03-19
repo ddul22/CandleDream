@@ -7,21 +7,23 @@
 			<div class="row">
 				<div class="col-lg-7 col-md-7">
 					<div class="shop__option__search">
-						<form action="#">
-							<select>
-								<option value="CY">Categories</option>
-								<option value="C">Candle</option>
-								<option value="Y">Yankee</option>
-								
-							</select> <input type="text" placeholder="Search">
-							<button type="submit">
+						<form action="ProductControl" method="get">
+							<select name="searchCondition" id="searchCondition">					
+								<option value="">선택하세요</option>
+								<option value="C" >Candle</option>
+								<option value="Y" >Yankee</option>
+								<option value="CY" >Candle&Yankee</option>					
+							</select> <input type="text" name="keyword" placeholder="${keyword }">
+
+							<button type="submit" >
 								<i class="fa fa-search"></i>
 							</button>
+							
 						</form>
 					</div>
 				</div>
 				<div class="col-lg-5 col-md-5">
-					<div class="shop__option__right">
+					<div class="shop__option__right">	
 						<select>
 							<option value="">Default sorting</option>
 							<option value="">A to Z</option>

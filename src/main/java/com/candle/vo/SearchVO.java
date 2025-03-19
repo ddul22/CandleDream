@@ -13,4 +13,7 @@ public class SearchVO {
 	private String searchCondition;
 	private String keyword;
 	private int itemNo;
+	
 }
+
+
