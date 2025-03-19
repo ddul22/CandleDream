@@ -30,12 +30,10 @@
         </div>
         
         <!-- 결제 버튼 -->
-        <form action="paymentControl" method="post">
             <ul>
-						<li>Total <span id="total">$ 169.50</span></li>
-					</ul>
-            <a href="" class="primary-btn">결제하기</a>
-        </form>
+				<li>Total <span id="total">$ 169.50</span></li>
+			</ul>
+            <a href="#" class="primary-btn">결제하기</a>
     </div>
 </body>
 </html>

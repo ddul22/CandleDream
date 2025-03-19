@@ -25,7 +25,7 @@ public class PointControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		
 		resp.setContentType("application/json;charset=utf-8");
 		String userNo = req.getParameter("userNo");
 		
@@ -39,7 +39,6 @@ public class PointControl implements Control {
 		for (ItemVO item : list) {
 			totalPrice += item.getOrderItemCount() * item.getOrderItemPrice();
 		}
-		
 		Map<String, Object> res = new HashMap<String, Object>();
 		
 		//update : user_point > user_point - totalPrice
@@ -49,6 +48,7 @@ public class PointControl implements Control {
 			r = mapper.status(order.getOrderNo());
 			if (r>0) {
 				res.put("retCode", "OK");
+
 			} else {
 				res.put("retCode", "NG");
 			}
