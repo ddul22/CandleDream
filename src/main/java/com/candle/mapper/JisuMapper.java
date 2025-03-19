@@ -20,10 +20,9 @@ public interface JisuMapper {
 	public int insertUser (Map<String, Object> userInfo);
 	
 	//qna 게시판
-	public QnaVO getQna(int qnaNo);
-	public int insertQna(QnaVO qna);
-	int updateBoard(QnaVO board);
-	public int deleteBoard(int QnaNo);
+	public List <QnaVO> qnaList();
+	
+	public int insertQna (QnaVO qnavo);
 	
 	
 }
