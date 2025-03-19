@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
 import com.candle.control.AddCartControl;
+import com.candle.control.AddPointControl;
+import com.candle.control.GetOrderInfoControl;
+import com.candle.control.GetUserInfoControl;
 import com.candle.control.AddUserControl;
-import com.candle.control.AddUserFormControl;
 import com.candle.control.CartControl;
 import com.candle.control.CartDataControl;
 import com.candle.control.ContactControl;
@@ -33,6 +35,7 @@ import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
 import com.candle.control.QnaAddFormControl;
 import com.candle.control.QnaControl;
+import com.candle.control.UpdateUserInfoControl;
 import com.candle.control.SearchControl;
 import com.candle.control.AddUserFormControl;
 
@@ -46,11 +49,19 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// 김민식
+		// 메인페이지
 		map.put("/main.do", new MainControl());
+		// 메인페이지 ajax
 		map.put("/mainData.do", new MainDataControl());
+		// 사용자페이지
 		map.put("/myPagePoint.do", new MyPagePointControl());
 		map.put("/myPageInfo.do", new MyPageInfoControl());
 		map.put("/myPageOrder.do", new MyPageOrderControl());
+		// 사용자페이지 ajax
+		map.put("/getUserInfo.do", new GetUserInfoControl());
+		map.put("/addPoint.do", new AddPointControl());
+		map.put("/updateUserInfo.do", new UpdateUserInfoControl());
+		map.put("/getOrderInfo.do", new GetOrderInfoControl());
 
 		// 김어진
 		map.put("/product.do", new ProductControl()); // 전체상품목록.
