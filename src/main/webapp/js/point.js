@@ -1,13 +1,13 @@
 const pointService = {
-	// 목록메소드.
 	get: function(successCallback, errorCallback) {
-		fetch('point.do?userNo=1')
+		fetch('point.do?userNo=' + userNo)
 			.then(result => result.json()) // 화살표 함수.
 			.then(successCallback) // 정상처리시 실행함수.
 			.catch(errorCallback) // 에러시 실행할 함수.
 	}
 }
-document.querySelector('').addEventListener('click', function(e) {
+
+document.querySelector('#confirm_payment').addEventListener('click', function(e) {
 
 	pointService.get((result) => {
 		console.log(result);

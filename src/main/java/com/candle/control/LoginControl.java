@@ -29,6 +29,7 @@ public class LoginControl implements Control {
 		if(user != null) {
 			HttpSession session = req.getSession();
 			session.setAttribute("userNo",user.getUserNo());
+			session.setAttribute("userType",user.getUserType());
 			resp.sendRedirect("main.do"); 
 			System.out.println("로그인잘됨");
 		}else {

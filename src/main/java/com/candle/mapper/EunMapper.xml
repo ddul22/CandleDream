@@ -14,6 +14,7 @@
 	from candle_item i join candle_order_item o
                     on i.item_no = o.item_no
                     where order_no = #{orderNo}
+                    and order_item_count > 0
  </select>
  
  <select id="user" resultType="com.candle.vo.UserVO" parameterType="int">

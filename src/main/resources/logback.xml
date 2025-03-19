@@ -20,6 +20,10 @@
 	<logger name="com.candle.mapper.EohMapper">
 		<level value="debug" />
 	</logger>
+	
+	<logger name="com.candle.mapper.EunMapper">
+		<level value="debug" />
+	</logger>
 
 	<root level="error">
 		<appender-ref ref="stdout" />

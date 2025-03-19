@@ -12,34 +12,43 @@
 							<a href="main.do"><img src="img/logo.png" alt=""></a>
 						</div>
 						<div class="header__top__right">
-							<div class="header__top__right__cart">
-								<a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-							</div>
-							<c:choose>
-								<c:when test="${empty loginId  }">
 
+							<c:choose>
+
+								<c:when test="${empty userNo  }">
+									<div class="header__top__right__cart">
+										<div class="cart__price">
+											<span><a href="loginForm.do">Login</a></span>
+										</div>
+									</div>
 								</c:when>
 
 								<c:otherwise>
+									<div class="header__top__right__cart">
+										<a href="cart.do?userNo=${userNo }"><img src="img/icon/cart.png" alt=""><span></span></a>
+									</div>
+									<div class="header__top__right__cart">
+										<div class="cart__price">
+											<c:choose>
+												<c:when test="${userType == 0  }">
+													<span><a href="myPagePoint.do">MyPage</a></span>
+												</c:when>
 
+												<c:otherwise>
+													<span><a href="adminPageItem.do">AdminPage</a></span>
+												</c:otherwise>
+											</c:choose>
+										</div>
+									</div>
+									<div class="header__top__right__cart">
+										<div class="cart__price">
+											<span><a href="logout.do">Logout</a></span>
+										</div>
+									</div>
 								</c:otherwise>
+
 							</c:choose>
 
-							<div class="header__top__right__cart">
-								<div class="cart__price">
-									<span><a href="myPagePoint.do">MyPage</a></span>
-								</div>
-							</div>
-							<div class="header__top__right__cart">
-								<div class="cart__price">
-									<span><a href="loginForm.do">Login</a></span>
-								</div>
-							</div>
-							<div class="header__top__right__cart">
-								<div class="cart__price">
-									<span><a href="logout.do">Logout</a></span>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -54,10 +63,10 @@
 			<div class="col-lg-12">
 				<nav class="header__menu mobile-menu">
 					<ul>
-						<li class="active"><a href="main.do">Home</a></li>
-						<li><a href="product.do">Shop</a></li>
-						<li><a href="qna.do">Q&A</a></li>
-						<li><a href="contact.do">Contact</a></li>
+						<li id="header_main"><a href="main.do">Home</a></li>
+						<li id="header_shop"><a href="product.do">Shop</a></li>
+						<li id="header_qna"><a href="qna.do">Q&A</a></li>
+						<li id="header_contact"><a href="contact.do">Contact</a></li>
 					</ul>
 				</nav>
 			</div>

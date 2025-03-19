@@ -38,6 +38,8 @@ import com.candle.control.QnaControl;
 import com.candle.control.UpdateUserInfoControl;
 import com.candle.control.SearchControl;
 import com.candle.control.AddUserFormControl;
+import com.candle.control.AdminPageItemControl;
+import com.candle.control.AdminPageOrderControl;
 
 public class FrontController extends HttpServlet {
 	Map<String, Control> map;
@@ -62,6 +64,9 @@ public class FrontController extends HttpServlet {
 		map.put("/addPoint.do", new AddPointControl());
 		map.put("/updateUserInfo.do", new UpdateUserInfoControl());
 		map.put("/getOrderInfo.do", new GetOrderInfoControl());
+		// 관리자페이지
+		map.put("/adminPageItem.do", new AdminPageItemControl());
+		map.put("/adminPageOrder.do", new AdminPageOrderControl());
 
 		// 김어진
 		map.put("/product.do", new ProductControl()); // 전체상품목록.

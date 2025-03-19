@@ -1,42 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>결제 페이지</title>
+	pageEncoding="UTF-8"%>
+<div class="container">
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-6">
+			<h4 class="mb-3 mt-5">결제하기</h4>
 
-</head>
-<body>
-    <div class="container" >
-        <h2>결제 페이지</h2>
-        
-        <!-- 주문자 정보 -->
-        <div class="order-info">
-            <h4>주문자정보</h4>
-            <p id="user_name">이름: </p>
-            <p id="user_email">이메일: </p>
-            <p id="user_tel">연락처: </p>
-            <p id="user_address">배송지: </p>
-        </div>
-        
-        <!-- 상품 정보 -->
-        <div class="product-list" id="payPage">
-        </div>
-        
-        <!-- 총 결제 금액 -->
-        <div class="total-price">
-            <h4>총 결제 금액: 원</h4>
-        </div>
-        
-        <!-- 결제 버튼 -->
-            <ul>
-				<li>Total <span id="total">$ 169.50</span></li>
-			</ul>
-            <a href="#" class="primary-btn">결제하기</a>
-    </div>
-</body>
-</html>
+			<hr class="my-4">
 
+			<h5 class="mb-3 mt-5">주문자 정보</h5>
+			<div class="row g-3">
+				<div class="col-12 mb-3">
+					<label for="user_name" class="form-label">이름</label> <input
+						type="email" class="form-control" id="user_name" placeholder=""
+						readonly>
+				</div>
+
+				<div class="col-12 mb-3">
+					<label for="user_tel" class="form-label">연락처</label> <input
+						type="text" class="form-control" id="user_tel" placeholder=""
+						required>
+				</div>
+
+				<div class="col-12 mb-3">
+					<label for="user_address" class="form-label">배송지</label> <input
+						type="text" class="form-control" id="user_address" placeholder=""
+						required>
+				</div>
+
+				<div class="col-12">
+					<label for="user_email" class="form-label">이메일 (선택)</label> <input
+						type="email" class="form-control" id="user_email" placeholder="">
+				</div>
+			</div>
+
+			<hr class="my-4">
+
+			<div class="row g-3">
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th>상품명</th>
+							<th>수량</th>
+							<th>가격</th>
+						</tr>
+					</thead>
+					<tbody id="payPage">
+					</tbody>
+				</table>
+			</div>
+
+			<div class="row justify-content-end">
+				<h4 id="total"></h4>
+				<div class="col-1"></div>
+			</div>
+			
+			<hr class="my-4">
+
+			<button class="w-100 btn-primary btn-lg mb-5" id="confirm_payment">결제하기</button>
+		</div>
+		<div class="col-3"></div>
+	</div>
+</div>
+
+<script>
+let userNo = '${userNo}';
+</script>
 <script src="js/payment.js"></script>
 <script src="js/point.js"></script>

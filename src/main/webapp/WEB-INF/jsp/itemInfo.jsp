@@ -111,3 +111,7 @@
 	</div>
 
 </section>
+
+<script>
+	document.querySelector('#header_shop').className += ' active';
+</script>

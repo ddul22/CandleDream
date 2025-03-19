@@ -12,11 +12,16 @@
 </section>
 
 <section class="product spad">
+
 	<div class="container">
-		<div class="row" id="new_item_list">
-		
+		<div class="contact__text">
+			<h3>New Candles!</h3>
 		</div>
+		<div class="row" id="new_item_list"></div>
 	</div>
 </section>
 
+<script>
+	document.querySelector('#header_main').className += ' active';
+</script>
 <script src="js/candleMain.js"></script>
