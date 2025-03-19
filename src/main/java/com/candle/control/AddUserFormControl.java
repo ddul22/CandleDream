@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
 
-public class addUserFormControl implements Control {
+public class AddUserFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

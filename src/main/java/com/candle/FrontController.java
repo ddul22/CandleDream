@@ -30,7 +30,7 @@ import com.candle.control.PointControl;
 import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
 import com.candle.control.QnaControl;
-import com.candle.control.addUserFormControl;
+import com.candle.control.AddUserFormControl;
 
 public class FrontController extends HttpServlet {
 	Map<String, Control> map;
@@ -64,7 +64,7 @@ public class FrontController extends HttpServlet {
 		map.put("/login.do", new LoginControl());
 		map.put("/loginForm.do", new LoginFormControl());
 		map.put("/logout.do", new LogoutControl());
-		map.put("/addUserForm.do", new addUserFormControl());
+		map.put("/addUserForm.do", new AddUserFormControl());
 		map.put("/addUser.do", new AddUserControl());
 		map.put("/qna.do", new QnaControl());
 	}
