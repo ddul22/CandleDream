@@ -12,6 +12,11 @@ function getNewItem() {
 				console.log(drawItem(item))
 			document.querySelector('#new_item_list').insertAdjacentHTML('beforeend', drawItem(item));
 			});
+			
+			$('.set-bg').each(function () {
+			        var bg = $(this).data('setbg');
+			        $(this).css('background-image', 'url(' + bg + ')');
+			    }); 
 		}).catch((error) => {
 			console.log(error);
 		})
@@ -20,13 +25,13 @@ function getNewItem() {
 function drawItem(item = {}) {
 	let html = `<div class="col-lg-3 col-md-6 col-sm-6">
 	    <div class="product__item">
-	        <div class="product__item__pic set-bg" data-setbg="img/shop/product-6.jpg">
+	        <div class="product__item__pic set-bg" data-setbg="${item.itemImagePath }">
 	            <div class="product__label">
 	                <span>${item.typeNo == 1 ? "CANDLE": "YANKEE"}</span>
 	            </div>
 	        </div>
 	        <div class="product__item__text">
-	            <h6><a href="#">${item.itemName}</a></h6>
+	            <h6><a href="productDetail.do?itemNo=${item.itemNo}">${item.itemName}</a></h6>
 	            <div class="product__item__price">${item.itemSale == 0 ? item.itemPriceSale : item.itemPrice}</div>
 	        </div>
 	    </div>
@@ -34,3 +39,5 @@ function drawItem(item = {}) {
 	
 	return html;
 }
+
+
