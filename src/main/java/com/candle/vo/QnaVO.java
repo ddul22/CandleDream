@@ -2,6 +2,9 @@ package com.candle.vo;
 
 import java.util.Date;
 
+import lombok.Data;
+
+@Data
 public class QnaVO {
 	private int qnaNo;
 	private int userNo;

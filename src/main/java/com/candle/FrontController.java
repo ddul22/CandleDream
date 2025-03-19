@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
-
-import com.candle.control.AddUserControl;
 import com.candle.control.AddCartControl;
+import com.candle.control.AddUserControl;
+import com.candle.control.AddUserFormControl;
 import com.candle.control.CartControl;
 import com.candle.control.CartDataControl;
 import com.candle.control.LoginControl;
@@ -29,8 +29,8 @@ import com.candle.control.PaymentDataControl;
 import com.candle.control.PointControl;
 import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
+import com.candle.control.QnaAddFormControl;
 import com.candle.control.QnaControl;
-import com.candle.control.AddUserFormControl;
 
 public class FrontController extends HttpServlet {
 	Map<String, Control> map;
@@ -61,12 +61,15 @@ public class FrontController extends HttpServlet {
 		map.put("/point.do", new PointControl());
 
 		// 김지수
-		map.put("/login.do", new LoginControl());
-		map.put("/loginForm.do", new LoginFormControl());
-		map.put("/logout.do", new LogoutControl());
-		map.put("/addUserForm.do", new AddUserFormControl());
-		map.put("/addUser.do", new AddUserControl());
-		map.put("/qna.do", new QnaControl());
+		map.put("/login.do", new LoginControl()); // 로그인처리
+		map.put("/loginForm.do", new LoginFormControl()); // 로그인화면
+		map.put("/logout.do", new LogoutControl()); // 로그아웃
+		map.put("/addUserForm.do", new AddUserFormControl()); // 회원가입화면
+		map.put("/addUser.do", new AddUserControl()); // 회원가입처리
+		map.put("/qna.do", new QnaControl()); // qna목록조회
+		map.put("/qnaAddForm.do", new QnaAddFormControl()); //qna등록화면
+		
+		
 	}
 
 	@Override
