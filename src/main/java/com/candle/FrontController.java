@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
-
-import com.candle.control.AddUserControl;
 import com.candle.control.AddCartControl;
 import com.candle.control.AddPointControl;
-import com.candle.control.CartControl;
-import com.candle.control.CartDataControl;
 import com.candle.control.GetOrderInfoControl;
 import com.candle.control.GetUserInfoControl;
+import com.candle.control.AddUserControl;
+import com.candle.control.CartControl;
+import com.candle.control.CartDataControl;
+import com.candle.control.ContactControl;
+import com.candle.control.ContactDataControl;
 import com.candle.control.LoginControl;
 import com.candle.control.LoginFormControl;
 import com.candle.control.LogoutControl;
@@ -32,8 +33,10 @@ import com.candle.control.PaymentDataControl;
 import com.candle.control.PointControl;
 import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
+import com.candle.control.QnaAddFormControl;
 import com.candle.control.QnaControl;
 import com.candle.control.UpdateUserInfoControl;
+import com.candle.control.SearchControl;
 import com.candle.control.AddUserFormControl;
 
 public class FrontController extends HttpServlet {
@@ -64,6 +67,7 @@ public class FrontController extends HttpServlet {
 		map.put("/product.do", new ProductControl()); // 전체상품목록.
 		map.put("/productDetail.do", new ProductDetailControl()); // 상품상세조회.
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 상품담기.
+		map.put("/search.do", new SearchControl()); // 전체상품목록 검색.
 		
 		// 정은총
 		map.put("/cart.do", new CartControl());
@@ -71,14 +75,19 @@ public class FrontController extends HttpServlet {
 		map.put("/payment.do", new PaymentControl());
 		map.put("/paymentData.do", new PaymentDataControl());
 		map.put("/point.do", new PointControl());
-
+		map.put("/contact.do", new ContactControl());
+		map.put("/contactData.do", new ContactDataControl());
+		
 		// 김지수
-		map.put("/login.do", new LoginControl());
-		map.put("/loginForm.do", new LoginFormControl());
-		map.put("/logout.do", new LogoutControl());
-		map.put("/addUserForm.do", new AddUserFormControl());
-		map.put("/addUser.do", new AddUserControl());
-		map.put("/qna.do", new QnaControl());
+		map.put("/login.do", new LoginControl()); // 로그인처리
+		map.put("/loginForm.do", new LoginFormControl()); // 로그인화면
+		map.put("/logout.do", new LogoutControl()); // 로그아웃
+		map.put("/addUserForm.do", new AddUserFormControl()); // 회원가입화면
+		map.put("/addUser.do", new AddUserControl()); // 회원가입처리
+		map.put("/qna.do", new QnaControl()); // qna목록조회
+		map.put("/qnaAddForm.do", new QnaAddFormControl()); //qna등록화면
+		
+		
 	}
 
 	@Override

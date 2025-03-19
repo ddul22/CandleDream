@@ -42,8 +42,8 @@ function showCart() {
 				let target = document.querySelector('#payPage');
 				target.insertAdjacentHTML('beforeend', payment(cart));
 			});
-			let target = document.querySelector('#total').innerHTML = sum;
-			target.insertAdjacentHTML('beforeend', payment(cart));
+			target = document.querySelector('#total').innerHTML = sum;
+			//target.insertAdjacentHTML('beforeend', payment(cart));
 
 		})
 		.catch((error) => console.log(error));
