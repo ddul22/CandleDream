@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<h3>qna게시판</h3>
-
- 
   <div class="center">
     <div class="row">
       <div class="col-sm-4">
@@ -24,19 +21,19 @@
     </div>
   </div>
   <button class="btn btn-primary" onclick="location.href='qnaAddForm.do'">글쓰기</button>
-  
 
-	<table class="table table-striped">
+
+	<table class="table table-striped" align="center">
 		<ul>
 		<tbody>
 		<tr>
-			<th>번호</th><th>제목</th><th>작성자</th><th>작성일시</th><th>진행상태</th>
+			<th>번호</th><th>제목</th><th>작성자</th><th>작성일시</th><th>내용</th>
 		</tr>		
 		<c:forEach var="qna" items="${list }">
-			<tr>
+			<tr onclick="window.location.href='qnaInfo.do?qnaNo=${qna.qnaNo}'">
 			    <td>${qna.qnaNo}</td>
 				<td><c:out value="${qna.qnaTitle }"></c:out></a></td>
-				<td><c:out value="${qna.userNo }"></c:out></td>
+				<td><c:out value="${userNo }"></c:out></td>
 				<td><c:out value="${qna.qnaDate }"></c:out></td>
 				<td><c:out value="${qna.qnaContent }"></c:out></td>
 			</tr>
