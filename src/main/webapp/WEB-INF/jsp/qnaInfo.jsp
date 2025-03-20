@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<h3>상세화면</h3>
+<h3>QnA</h3>
 <form action="qnaInfo.do">
 	<input type="hidden" name="qnaNo" value="${qnainfo.qnaNo }">
 	<table class="table">
@@ -25,9 +25,12 @@
 			<th>작성일시</th>
 			<td><c:out value="${qnainfo.qnaDate }"></c:out></td>
 		</tr>
-	
 		<tr>
-
+			<td colspan="4"><textarea cols="45" rows="15" name="content"></textarea> 
+		</tr>
+		
+		<tr>
+		<td colspan="4"><input class="btn btn-primary"type="submit" value="등록"onclick="document.location='qnaReply.do'"></td>
 		</tr>
 		<c:if test="${msg != null }">
 			<tr>

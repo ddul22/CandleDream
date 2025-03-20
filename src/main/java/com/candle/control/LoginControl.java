@@ -21,8 +21,10 @@ public class LoginControl implements Control {
 		
 		String id = req.getParameter("id");
 		String pwd = req.getParameter("pwd");
+		
 		SqlSession sqlSession=DataSource.getInstance().openSession();
 		JisuMapper mapper = sqlSession.getMapper(JisuMapper.class);
+		
 		UserVO user = mapper.login(id, pwd);
 		System.out.println("id->"+id+"pwd->"+pwd);
 		

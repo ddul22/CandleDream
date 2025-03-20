@@ -44,6 +44,7 @@ import com.candle.control.ProductDetailControl;
 import com.candle.control.QnaAddControl;
 import com.candle.control.QnaAddFormControl;
 import com.candle.control.QnaInfoControl;
+import com.candle.control.QnaReplyControl;
 import com.candle.control.QnaControl;
 import com.candle.control.RemoveDataControl;
 import com.candle.control.UpdateUserInfoControl;
@@ -112,6 +113,8 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaAddForm.do", new QnaAddFormControl()); //qna등록화면
 		map.put("/qnaAdd.do", new QnaAddControl()); // qna등록처리
 		map.put("/qnaInfo.do", new QnaInfoControl()); //qna등록내용
+		map.put("/qnaReply.do", new QnaReplyControl()); //qna답변
+		
 		
 		
 		
