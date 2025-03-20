@@ -11,7 +11,7 @@ import com.candle.vo.SearchVO;
 public interface EohMapper {
 	public List<ItemVO> selectAll(SearchVO search);
 	public ItemVO itemInfo(String itemNo); // ItemVO에 정의된 정보를 itemInfo에 담음
-	public int getTotalCount(PageVO search);
+	public int getTotalCount(SearchVO serachVO);
 	public int orderInfo(AddCartVO addCart);
 	public int orderNo(int userNo);
 	public int orderItemInfo(AddCartItemVO addCartItem);
