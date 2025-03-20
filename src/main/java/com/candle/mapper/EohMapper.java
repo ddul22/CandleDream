@@ -13,7 +13,7 @@ public interface EohMapper {
 	public ItemVO itemInfo(String itemNo); // ItemVO에 정의된 정보를 itemInfo에 담음
 	public int getTotalCount(SearchVO serachVO);
 	public int orderInfo(AddCartVO addCart);
-	public int orderNo(int userNo);
+	public Integer orderNo(int userNo);
 	public int orderItemInfo(AddCartItemVO addCartItem);
 	public int checkOrder(AddCartItemVO checkOrder);
 }

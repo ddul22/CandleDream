@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <div class="container">
 	<div class="row">
-		<div class="col-3"></div>
-		<div class="col-6">
+		<div class="col-2"></div>
+		<div class="col-8">
 			<h4 class="mb-3 mt-5">결제하기</h4>
 
 			<hr class="my-4">
@@ -52,21 +52,22 @@
 
 			<div class="row justify-content-end">
 				<h4 id="total"></h4>
-				<div class="col-1"></div>
 			</div>
-			
+			<hr class="my-4">
+			<div class="row justify-content-end">
+				<h4 id="user_point"></h4>
+			</div>
+
 			<hr class="my-4">
 
-			<button class="w-100 btn-primary btn-lg mb-5" id="confirm_payment" >결제하기</button>
+			<button class="w-100 btn-primary btn-lg mb-5" id="confirm_payment">결제하기</button>
 		</div>
-		<div class="col-3"></div>
+		<div class="col-2"></div>
 	</div>
 </div>
 
 <script>
-let userNo = '${userNo}';
-
-
+	let userNo = '${userNo}';
 </script>
 <script src="js/payment.js"></script>
 <script src="js/point.js"></script>

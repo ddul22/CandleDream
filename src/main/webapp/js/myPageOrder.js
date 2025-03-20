@@ -63,7 +63,7 @@ function drawOrderInfo(orderInfo = []) {
 				itemNames = item.itemName;
 
 				if (array.length > 1) {
-					itemNames += '외 ' + array.length + '종';
+					itemNames += '외 ' + (array.length - 1) + '종';
 				}
 			}
 

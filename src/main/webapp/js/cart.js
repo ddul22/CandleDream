@@ -26,7 +26,7 @@ function cartList(list = {}) {
 	return html;
 }
 function showCart() {
-	fetch('cartData.do?userNo=1')
+	fetch('cartData.do?userNo=' + userNo)
 		.then((result) => result.json())
 		.then((result) => {
 			console.log(result);

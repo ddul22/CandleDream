@@ -1,5 +1,7 @@
 
 let sum = 0;
+let point = 0;
+
 showPay();
 showCart();
 
@@ -26,6 +28,9 @@ function showPay() {
 			target.value = '연락처: ' + user.userTel;
 			target = document.querySelector('#user_address');
 			target.value = '배송지: ' + user.userAddress;
+			target = document.querySelector('#user_point');
+			target.innerHTML = '현재 포인트 : ' + user.userPoint;
+			point = user.userPoint;
 		})
 }
 
@@ -40,7 +45,7 @@ function showCart() {
 				let target = document.querySelector('#payPage');
 				target.insertAdjacentHTML('beforeend', payment(cart));
 			});
-			target = document.querySelector('#total').innerHTML = '총 결제 금액 : ' + sum + ' 원';
+			target = document.querySelector('#total').innerHTML = '총 결제 금액 : ' + sum;
 			//target.insertAdjacentHTML('beforeend', payment(cart));
 
 		})

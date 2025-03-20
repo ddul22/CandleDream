@@ -32,7 +32,7 @@
  
  <insert id="contact" parameterType="contact">
  	insert into candle_contact (contact_no, contact_name, contact_email, contact_content, contact_date)
- 	values ((select max(contact_no) + 1 from candle_contact), #{contactName}, #{contactEmail}, #{contactContent}, sysdate )
+ 	values ((select nvl(max(contact_no), 0) + 1 from candle_contact), #{contactName}, #{contactEmail}, #{contactContent}, sysdate )
  </insert>
  
  <update id="deleteData" parameterType="int">

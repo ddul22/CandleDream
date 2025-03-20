@@ -18,8 +18,7 @@
 					<div class="footer__logo">
 						<a href="#"><img src="img/footer-logo.png" alt=""></a>
 					</div>
-					<p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
+					<p>(주)예담직업전문학교 대구광역시 중구 중앙대로 403 (남일동 135-1, 5층) / 대표자:서강중 / 사업자번호:504-86-00471 / Tel:053-421-2460 / Fax:053-356-3939</p>
 				</div>
 			</div>
 		</div>

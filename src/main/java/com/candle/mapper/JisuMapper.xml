@@ -33,7 +33,7 @@
 	
 	<insert id="insertQna" parameterType="map">
 
-    insert into candle_qna values((select max(qna_no) + 1 from candle_qna),
+    insert into candle_qna values((select nvl(max(qna_no), 0) + 1 from candle_qna),
 		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, null, null, null )
 		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, #{qnaReply}, #{qnaReplyDate}, #{qnaReplyUserNO} );
 	</insert>

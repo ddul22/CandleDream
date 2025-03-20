@@ -19,16 +19,14 @@ public class AddUserControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		String id = req.getParameter("userId");
 		String pwd = req.getParameter("userPwd");
 		String name = req.getParameter("userName");
 		String tel = req.getParameter("userTel");
 		String email = req.getParameter("userEmail");
 		String address = req.getParameter("userAddress");
-		
 
-		
 		Map<String, Object> userInfo = new HashMap<String, Object>();
 		userInfo.put("userId", id);
 		userInfo.put("userPwd", pwd);
@@ -36,20 +34,15 @@ public class AddUserControl implements Control {
 		userInfo.put("userTel", tel);
 		userInfo.put("userEmail", email);
 		userInfo.put("userAddress", address);
-		
-		SqlSession sqlSession=DataSource.getInstance().openSession(true);
+
+		SqlSession sqlSession = DataSource.getInstance().openSession(true);
 		JisuMapper mapper = sqlSession.getMapper(JisuMapper.class);
 		int result = mapper.insertUser(userInfo);
-		if(result>0) {
-//			resp.getWriter().print("{\"retCode\": \"OK\"}");
-			HttpSession session = req.getSession();
-			resp.sendRedirect("loginForm.do"); 
-
-		}else {
-			resp.getWriter().print("{\"retCode\": \"NG\"}"); 
+		if (result > 0) {
+			resp.sendRedirect("loginForm.do");
+		} else {
+			resp.sendRedirect("addUserForm.do");
 		}
 	}
-		
-	}
 
-
+}
