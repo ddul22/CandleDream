@@ -52,7 +52,7 @@
 	<insert id="orderInfo" parameterType="com.candle.vo.AddCartVO">
 		<selectKey keyProperty="orderNo" resultType="int"
 			order="BEFORE">
-			select max(order_no) + 1 from candle_order
+			select nvl(max(order_no), 0) + 1 from candle_order
 		</selectKey>
 		insert into candle_order (order_no, user_no, order_date, order_status,
 		order_price)
@@ -70,7 +70,7 @@
 		#{orderItemCount}, #{orderItemPrice})
 	</insert>
 	<!--java.lang.Integer -->
-	<select id="orderNo" resultType="int" parameterType="int">
+	<select id="orderNo" resultType="Integer" parameterType="int">
 		select
 		order_no
 		from candle_order

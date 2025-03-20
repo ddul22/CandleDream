@@ -40,5 +40,7 @@
 		</div>
 	</div>
 </section>
-
+<script>
+	let userNo = '${userNo}';
+</script>
 <script src="js/cart.js"></script>

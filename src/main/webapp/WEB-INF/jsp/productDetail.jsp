@@ -60,11 +60,7 @@
             </div>
             <div class="product__details__tab">
                 <div class="col-lg-12">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Previews(1)</a>
-                        </li>
-                    </ul>
+                    
                 </div>
             </div>
             

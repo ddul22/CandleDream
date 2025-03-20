@@ -11,10 +11,9 @@
 					<div class="shop__option__search">
 						<form action="product.do" method="get">
 							<select name="searchCondition" id="searchCondition">					
-								<option value="">선택하세요</option>
+								<option value="CY">Candle&Yankee</option>
 								<option value="C" >Candle</option>
-								<option value="Y" >Yankee</option>
-								<option value="CY" >Candle&Yankee</option>					
+								<option value="Y" >Yankee</option>				
 							</select> <input type="text" name="keyword" placeholder="${keyword }">
 
 							<button type="submit" >

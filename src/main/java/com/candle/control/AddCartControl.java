@@ -34,20 +34,22 @@ public class AddCartControl implements Control {
 		Gson gson = new Gson();
 
 		// orderNo check
-		int orderNo = mapper.orderNo(userNo); // orderNo의 정보가 있는지 없는지 확인.
+		Integer orderNo = mapper.orderNo(userNo); // orderNo의 정보가 있는지 없는지 확인.
 		System.out.println("orderNo : " + orderNo);
 		// 0 이면
-		if (orderNo == 0) { // 주문이 없으면.
+		if (orderNo == null) { // 주문이 없으면.
 			AddCartVO addCart = new AddCartVO(); // orderNo != 0 이면, 새로운 주문을 추가.
 			addCart.setUserNo(userNo);
 
-			orderNo = mapper.orderInfo(addCart);
+			int result = mapper.orderInfo(addCart);
 
-			if (orderNo == 0) {
+			if (result == 0) {
 				sqlSession.rollback(true);
 				map.put("retCode", "NG");
 				resp.getWriter().print(gson.toJson(map));
 				return;
+			} else {
+				orderNo = addCart.getOrderNo();
 			}
 		}
 
