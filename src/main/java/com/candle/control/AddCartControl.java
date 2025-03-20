@@ -38,8 +38,6 @@ public class AddCartControl implements Control {
 		System.out.println("orderNo : " + orderNo);
 		// 0 이면
 		if (orderNo == 0) { // 주문이 없으면.
-//		mapper.orderNo(userNo); // 새로운 주문을 추가하고 생성된 orderNo를 받아옴.
-//		orderNo = mapper.orderNo(userNo); // 새롭게 생성된 주문번호 가져오기.	
 			AddCartVO addCart = new AddCartVO(); // orderNo != 0 이면, 새로운 주문을 추가.
 			addCart.setUserNo(userNo);
 
@@ -62,9 +60,6 @@ public class AddCartControl implements Control {
 		// orderNo, itemNo 중복 체크 candle_order_item
 		// xml => merge into 사용.
 		int checkOrder = mapper.checkOrder(addCartItem);
-
-
-//		int orderResult = mapper.orderItemInfo(addCartItem);
 
 		if (checkOrder == 1) {
 			sqlSession.commit(true);

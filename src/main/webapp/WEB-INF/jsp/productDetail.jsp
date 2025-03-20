@@ -147,6 +147,6 @@ document.querySelector("#addBtn").addEventListener('click', function(){
 	.then((result) => {
 		console.log(result);
 	})
-	.catch((error) => console.log(error));
+	.catch((error) => alert("로그인을 하세요."));
 })
 </script>
