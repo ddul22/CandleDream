@@ -38,10 +38,14 @@
 		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, #{qnaReply}, #{qnaReplyDate}, #{qnaReplyUserNO} );
 	</insert>
 	
+	</insert>
+ 
+
  	<select id="qnaInfo" resultType="qna" parameterType="int">
 	select * 
     from candle_qna
     where qna_no = #{qnaNo}
 	</select>
+
   
   </mapper>

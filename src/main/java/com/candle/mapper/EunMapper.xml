@@ -35,6 +35,8 @@
  	values ((select max(contact_no) + 1 from candle_contact), #{contactName}, #{contactEmail}, #{contactContent}, sysdate )
  </insert>
  
-
+ <update id="deleteData" parameterType="int">
+   update candle_order_item set order_item_count = 0 where order_no = #{orderNo} and item_no = #{itemNo}
+ </update>
  
 </mapper>

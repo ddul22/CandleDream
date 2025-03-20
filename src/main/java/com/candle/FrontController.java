@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
 import com.candle.control.AddCartControl;
+import com.candle.control.AddDataControl;
 import com.candle.control.AddItemControl;
 import com.candle.control.AddItemDataControl;
+
 import com.candle.control.AddPointControl;
 import com.candle.control.AddUserControl;
 import com.candle.control.AddUserFormControl;
@@ -43,7 +45,14 @@ import com.candle.control.QnaAddControl;
 import com.candle.control.QnaAddFormControl;
 import com.candle.control.QnaInfoControl;
 import com.candle.control.QnaControl;
+import com.candle.control.RemoveDataControl;
 import com.candle.control.UpdateUserInfoControl;
+
+import com.candle.control.AddUserFormControl;
+import com.candle.control.AdminPageItemControl;
+import com.candle.control.AdminPageOrderControl;
+
+
 
 
 public class FrontController extends HttpServlet {
@@ -90,6 +99,8 @@ public class FrontController extends HttpServlet {
 		map.put("/point.do", new PointControl());
 		map.put("/contact.do", new ContactControl());
 		map.put("/contactData.do", new ContactDataControl());
+		map.put("/addData.do", new AddDataControl());
+		map.put("/removeData.do", new RemoveDataControl());
 		
 		// 김지수
 		map.put("/login.do", new LoginControl()); // 로그인처리
