@@ -5,23 +5,41 @@
 <mapper namespace="com.candle.mapper.EohMapper">
 	<!-- 전체상품 조회 -->
 	<select id="selectAll" resultType="item" parameterType="search">
-		select * from candle_item
+		select can_b.* 
+		from (select rownum rn, can_a.*
+			from (select item_no, type_no, item_name, item_image, item_price, item_price_sale, 
+			item_sale, item_status, item_image_path, item_info
+			from candle_item    
 		<!-- search -->
-		<choose>
-			<when test="searchCondition == 'C'">
-				where type_no = 1
-			</when>
-			<when test="searchCondition == 'Y'">
-				where type_no = 2
-			</when>
-			<when test="searchCondition == 'CY'">
-				where type_no = 1 or type_no = 2
-			</when>
-		</choose>
-		<if test="keyword != null and keyword != ''">
-			where item_name like CONCAT('%', #{keyword}, '%')
-		</if>
+			<if test="searchCondition == 'C'.toString() ">
+				where type_no = 1 AND item_name LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="searchCondition == 'Y'.toString() ">
+				where type_no = 2 AND item_name LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="searchCondition == 'CY'.toString() ">
+				where (type_no = 1 or type_no = 2) AND item_name LIKE '%' || #{keyword} || '%'
+			</if>
+		order by item_no ASC) can_a) can_b
+		where can_b.rn >= (#{page} -1) * 4 + 1
+	<![CDATA[
+	and   can_b.rn <= #{page} * 4
+	]]>
 	</select>
+	<select id="getTotalCount" resultType="int" parameterType="search">
+		select count(item_no)
+		from candle_item
+		<if test="searchCondition == 'C'.toString()">
+				where type_no = 1 AND item_name LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="searchCondition == 'Y'.toString()">
+				where type_no = 2 AND item_name LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="searchCondition == 'CY'.toString()">
+				where (type_no = 1 or type_no = 2) AND item_name LIKE '%' || #{keyword} || '%'
+			</if>
+	</select>
+	
 	<!-- 상세상품 조회 -->
 	<select id="itemInfo" resultType="com.candle.vo.ItemVO"
 		parameterType="String">
