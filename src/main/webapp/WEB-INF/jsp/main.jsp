@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <head>
+
 </head>
 <section class="hero">
 	<div class="hero__slider owl-carousel">
 		<div class="hero__item set-bg" data-setbg="img/hero/hero-2.jpg">
-
 		</div>
 		<div class="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
 
