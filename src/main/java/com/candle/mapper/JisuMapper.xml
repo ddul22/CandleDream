@@ -37,9 +37,6 @@
 		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, null, null, null )
 		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, #{qnaReply}, #{qnaReplyDate}, #{qnaReplyUserNO} );
 	</insert>
-	
-	</insert>
- 
 
  	<select id="qnaInfo" resultType="qna" parameterType="int">
 	select * 
@@ -47,5 +44,5 @@
     where qna_no = #{qnaNo}
 	</select>
 
-  
   </mapper>
+  
