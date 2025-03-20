@@ -17,4 +17,5 @@ public interface EunMapper {
 	public int point(@Param("totalPrice") int totalPrice, @Param("userNo") int userNo);
 	public int status(int orderNo);
 	public int contact(ContactVO contact);
+	public int deleteData(@Param("orderNo") int orderNo, @Param("itemNo") int itemNo);
 }

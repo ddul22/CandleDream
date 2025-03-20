@@ -3,7 +3,7 @@ let sum = 0;
 showCart();
 
 function cartList(list = {}) {
-	let html = `	<tr>
+	let html = `	<tr id="proInfo${list.itemNo}">
 						<td class="product__cart__item">
 							<div class="product__cart__item__pic">
 									<img src="${list.itemImage}" alt="">
@@ -21,7 +21,7 @@ function cartList(list = {}) {
 							</div>
 						</td>
 						<td class="cart__price">${list.itemPrice * list.orderItemCount} </td>
-						<td class="cart__close"><span class="icon_close"></span></td>
+						<td class="cart__close"><span class="icon_close" onclick="remove(${list.orderNo}, ${list.itemNo})"></span></td>
 					</tr>`;
 	return html;
 }
@@ -41,4 +41,23 @@ function showCart() {
 			
 		})
 		.catch((error) => console.log(error));
+}
+function remove(orderNo, itemNo) {
+console.log(orderNo, itemNo);
+	console.log(this);
+
+	fetch("removeData.do?orderNo=" + orderNo + "&itemNo=" + itemNo ) 
+		.then(function(result) {
+			return result.json();
+		})
+		.then((result) => {
+			console.log(result);
+			if (result.retCode == "OK") {
+				document.querySelector('#proInfo' + itemNo).remove(); 
+			} else if (result.retCode == "NG") {
+				alert('삭제오류 발생'); 
+			} else {
+				alert('알수 없는 코드입니다.');
+			}
+		})
 }

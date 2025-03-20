@@ -10,10 +10,22 @@ const pointService = {
 document.querySelector('#confirm_payment').addEventListener('click', function(e) {
 
 	pointService.get((result) => {
-		console.log(result);
-		alert("결제가 완료되었습니다!")
-	}, (error) => {
-		console.log(error);
-		alert("결제가 거부되었습니다. 다시 시도하세요.")
+			console.log(result);
+				alert("결제가 완료되었습니다!")
+				window.location.href = "main.do";
+			}, (error) => {
+				console.log(error);
+				alert("결제가 거부되었습니다. 다시 시도하세요.")
+			})
+        
+		let result = user_point;
+
+		if (itemPrice * orderItemCount > userPoints) {
+			alert("포인트가 부족합니다! 결제를 실패했습니다.");
+			return;
+		}
+		result -= itemPrice * orderItemCount;
+		alert("결제가 완료되었습니다! 남은 포인트: " + result);
+		updatePointsDisplay();
+	
 	})
-})

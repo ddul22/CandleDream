@@ -57,7 +57,7 @@
 			
 			<hr class="my-4">
 
-			<button class="w-100 btn-primary btn-lg mb-5" id="confirm_payment">결제하기</button>
+			<button class="w-100 btn-primary btn-lg mb-5" id="confirm_payment" >결제하기</button>
 		</div>
 		<div class="col-3"></div>
 	</div>
@@ -65,6 +65,8 @@
 
 <script>
 let userNo = '${userNo}';
+
+
 </script>
 <script src="js/payment.js"></script>
 <script src="js/point.js"></script>

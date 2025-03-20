@@ -36,7 +36,7 @@
     insert into candle_qna values((select max(qna_no) + 1 from candle_qna),
 		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, #{qnaReply}, #{qnaReplyDate}, #{qnaReplyUserNO} );
 	
-	
+	</insert>
  
   
   </mapper>
