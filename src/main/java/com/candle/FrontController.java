@@ -13,13 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.candle.common.Control;
 import com.candle.control.AddCartControl;
 import com.candle.control.AddPointControl;
-import com.candle.control.GetOrderInfoControl;
-import com.candle.control.GetUserInfoControl;
 import com.candle.control.AddUserControl;
+import com.candle.control.AddUserFormControl;
 import com.candle.control.CartControl;
 import com.candle.control.CartDataControl;
 import com.candle.control.ContactControl;
 import com.candle.control.ContactDataControl;
+import com.candle.control.GetOrderInfoControl;
+import com.candle.control.GetUserInfoControl;
 import com.candle.control.LoginControl;
 import com.candle.control.LoginFormControl;
 import com.candle.control.LogoutControl;
@@ -36,8 +37,6 @@ import com.candle.control.ProductDetailControl;
 import com.candle.control.QnaAddFormControl;
 import com.candle.control.QnaControl;
 import com.candle.control.UpdateUserInfoControl;
-import com.candle.control.SearchControl;
-import com.candle.control.AddUserFormControl;
 
 public class FrontController extends HttpServlet {
 	Map<String, Control> map;
@@ -64,10 +63,9 @@ public class FrontController extends HttpServlet {
 		map.put("/getOrderInfo.do", new GetOrderInfoControl());
 
 		// 김어진
-		map.put("/product.do", new ProductControl()); // 전체상품목록.
+		map.put("/product.do", new ProductControl()); // 전체상품목록. 카테고리별 상품조회.
 		map.put("/productDetail.do", new ProductDetailControl()); // 상품상세조회.
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 상품담기.
-		map.put("/search.do", new SearchControl()); // 전체상품목록 검색.
 		
 		// 정은총
 		map.put("/cart.do", new CartControl());

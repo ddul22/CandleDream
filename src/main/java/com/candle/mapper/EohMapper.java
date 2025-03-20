@@ -14,7 +14,6 @@ public interface EohMapper {
 	public int getTotalCount(PageVO search);
 	public int orderInfo(AddCartVO addCart);
 	public int orderNo(int userNo);
-//	public int orderItemInfo(AddCartVO addCart);
 	public int orderItemInfo(AddCartItemVO addCartItem);
 	public int checkOrder(AddCartItemVO checkOrder);
 }
