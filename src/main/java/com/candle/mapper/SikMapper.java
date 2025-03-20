@@ -21,4 +21,8 @@ public interface SikMapper {
 	public List<OrderVO> getOrderList(int userNo);
 	
 	public List<ItemVO> getOrderItemList(int orderNo);
+
+	public List<ItemVO> selectItemActive();
+	
+	public int insertItem(ItemVO item);
 }

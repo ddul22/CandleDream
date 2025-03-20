@@ -46,4 +46,13 @@
 		join candle_item i on oi.item_no = i.item_no
 		where order_no = #{orderNo}
 	</select>
+	
+	<select id="selectItemActive" resultType="item">
+		select * from candle_item where item_status = 0
+	</select>
+	
+	<insert id="insertItem" parameterType="item">
+		insert into candle_item values ((select max(item_no) + 1 from candle_item),
+		#{typeNo}, #{itemName}, #{itemImage}, #{itemPrice}, 0, 1, 0, #{itemImagePath}, '')
+	</insert>
 </mapper>
