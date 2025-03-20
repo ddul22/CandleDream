@@ -43,6 +43,7 @@
     from candle_qna
     where qna_no = #{qnaNo}
 	</select>
+	
 
   </mapper>
   

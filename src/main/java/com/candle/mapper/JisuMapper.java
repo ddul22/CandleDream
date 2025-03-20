@@ -27,4 +27,7 @@ public interface JisuMapper {
 	public QnaVO qnaInfo(int qnano);
 	
 	
+	
+	
+	
 }
