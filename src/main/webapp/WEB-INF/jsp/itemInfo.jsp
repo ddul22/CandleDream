@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <section class="shop spad">
 	<div class="container">
 		<div class="shop__option">
 			<div class="row">
 				<div class="col-lg-7 col-md-7">
 					<div class="shop__option__search">
-						<form action="ProductControl" method="get">
+						<form action="product.do" method="get">
 							<select name="searchCondition" id="searchCondition">					
 								<option value="">선택하세요</option>
 								<option value="C" >Candle</option>
@@ -22,17 +24,6 @@
 						</form>
 					</div>
 				</div>
-				<div class="col-lg-5 col-md-5">
-					<div class="shop__option__right">	
-						<select>
-							<option value="">Default sorting</option>
-							<option value="">A to Z</option>
-							<option value="">1 - 8</option>
-							<option value="">Name</option>
-						</select> <a href="#"><i class="fa fa-list"></i></a> <a href="#"><i
-							class="fa fa-reorder"></i></a>
-					</div>
-				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -43,6 +34,7 @@
 						<div class="product__item__pic set-bg"
 							data-setbg="${candle.itemImagePath }">
 							<div class="product__label">
+							
 								<span><c:out value="${candle.itemNo }" /></span>
 							</div>
 						</div>
@@ -52,10 +44,8 @@
 								<a href="#">${candle.itemName }</a>
 							</h6>
 							<div class="product__item__price">
-								<c:out value="${candle.itemPrice }원"></c:out>
-							</div>
-							<div class="cart_add">
-								<a href="#">Add to cart</a>
+							<fmt:formatNumber value="${candle.itemPrice}" type="number" pattern="#,###" var="formattedPrice"/>
+							<c:out value="${formattedPrice}원"/>
 							</div>
 						</div>
 					</div>
@@ -89,7 +79,7 @@
 						</c:when>
 						<c:otherwise>
 							<li class="page-item"><a class="page-link"
-								href="product.do?page=${p }&searchCondition=${searchCondition}&keyword=${keyword}">${p+1 }</a>
+								href="product.do?page=${p }&searchCondition=${searchCondition}&keyword=${keyword}">${p }</a>
 							</li>
 						</c:otherwise>
 					</c:choose>

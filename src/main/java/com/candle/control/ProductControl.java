@@ -22,7 +22,6 @@ public class ProductControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String page = req.getParameter("page");
 		page = page == null ? "1" : page;
-		PageVO pa = new PageVO(Integer.parseInt(page));
 
 		String sc = req.getParameter("searchCondition");
 		String kw = req.getParameter("keyword");
@@ -38,16 +37,17 @@ public class ProductControl implements Control {
 		EohMapper mapper = sqlSession.getMapper(EohMapper.class);
 		List<ItemVO> product = mapper.selectAll(search);
 		req.setAttribute("product", product);
-		req.getRequestDispatcher("candle/itemInfo.tiles").forward(req, resp);
 
 		// 페이징.
-		int totalCnt = mapper.getTotalCount(pa);
+		
+		int totalCnt = mapper.getTotalCount(search);
 
 		PageVO paging = new PageVO(Integer.parseInt(page), totalCnt);
 		req.setAttribute("paging", paging);
 		req.setAttribute("keyword", kw);
+		req.setAttribute("searchCondition", sc);
 
-		req.getRequestDispatcher("candle/product.tiles").forward(req, resp);
+		req.getRequestDispatcher("candle/itemInfo.tiles").forward(req, resp);
 
 	}
 
