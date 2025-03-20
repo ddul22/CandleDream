@@ -34,6 +34,7 @@ import com.candle.control.PaymentDataControl;
 import com.candle.control.PointControl;
 import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
+import com.candle.control.QnaAddControl;
 import com.candle.control.QnaAddFormControl;
 import com.candle.control.QnaControl;
 import com.candle.control.UpdateUserInfoControl;
@@ -84,6 +85,8 @@ public class FrontController extends HttpServlet {
 		map.put("/addUser.do", new AddUserControl()); // 회원가입처리
 		map.put("/qna.do", new QnaControl()); // qna목록조회
 		map.put("/qnaAddForm.do", new QnaAddFormControl()); //qna등록화면
+		map.put("/qnaAdd.do", new QnaAddControl()); // qna등록처리
+		
 		
 		
 	}
