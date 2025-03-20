@@ -10,6 +10,7 @@ function payment(pay = {}) {
 	<td>${pay.itemName}</td>
 	<td>${pay.orderItemCount}</td>
 	<td>${pay.orderItemPrice}</td>
+	<td>${pay.orderItemPrice * pay.orderItemCount}</td>
 	</tr>`;
 	return html;
 }
@@ -21,13 +22,13 @@ function showPay() {
 			let user = result;
 			console.log(user);
 			let target = document.querySelector('#user_name');
-			target.value = '이름: ' + user.userName;
+			target.value = user.userName;
 			target = document.querySelector('#user_email');
-			target.value = '이메일: ' + user.userEmail;
+			target.value = user.userEmail;
 			target = document.querySelector('#user_tel');
-			target.value = '연락처: ' + user.userTel;
+			target.value = user.userTel;
 			target = document.querySelector('#user_address');
-			target.value = '배송지: ' + user.userAddress;
+			target.value = user.userAddress;
 			target = document.querySelector('#user_point');
 			target.innerHTML = '현재 포인트 : ' + user.userPoint;
 			point = user.userPoint;

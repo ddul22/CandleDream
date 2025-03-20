@@ -6,13 +6,14 @@ function cartList(list = {}) {
 	let html = `	<tr id="proInfo${list.itemNo}">
 						<td class="product__cart__item">
 							<div class="product__cart__item__pic">
-									<img src="${list.itemImage}" alt="">
+									<img style="width:90px;" src="${list.itemImagePath}" alt="">
 							</div>
 							<div class="product__cart__item__text">
 								<h6>${list.itemName}</h6>
-								<h5>${list.itemPrice}</h5>
+								<h5>${list.typeNo == 1 ? 'CANDLE' : 'YANKEE'}</h5>
 							</div>
 						</td>
+						<td class="cart__price">${list.orderItemPrice} </td>
 						<td class="quantity__item">
 							<div class="quantity">
 								<div class="pro-qty">
@@ -20,25 +21,28 @@ function cartList(list = {}) {
 								</div>
 							</div>
 						</td>
-						<td class="cart__price">${list.itemPrice * list.orderItemCount} </td>
+						<td class="cart__price">${list.orderItemPrice * list.orderItemCount} </td>
 						<td class="cart__close"><span class="icon_close" onclick="remove(${list.orderNo}, ${list.itemNo})"></span></td>
 					</tr>`;
 	return html;
 }
 function showCart() {
+	
+	sum = 0;
+	let target = document.querySelector('#cartPage');
+	target.innerHTML = '';
+	document.querySelector('#total').innerHTML = '0';
+	
 	fetch('cartData.do?userNo=' + userNo)
 		.then((result) => result.json())
 		.then((result) => {
 			console.log(result);
 			let cartAry = result;
 			cartAry.forEach(cart => {
-				sum += cart.orderItemCount * cart.itemPrice; 
-				let target = document.querySelector('#cartPage');
+				sum += cart.orderItemCount * cart.orderItemPrice; 
 				target.insertAdjacentHTML('beforeend', cartList(cart));
 			});
-			let target = document.querySelector('#total').innerHTML = sum;
-			target.insertAdjacentHTML('beforeend', cartList(cart));
-			
+			document.querySelector('#total').innerHTML = sum;
 		})
 		.catch((error) => console.log(error));
 }
@@ -53,7 +57,7 @@ console.log(orderNo, itemNo);
 		.then((result) => {
 			console.log(result);
 			if (result.retCode == "OK") {
-				document.querySelector('#proInfo' + itemNo).remove(); 
+				showCart();
 			} else if (result.retCode == "NG") {
 				alert('삭제오류 발생'); 
 			} else {

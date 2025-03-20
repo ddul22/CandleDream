@@ -2,48 +2,48 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="com.candle.mapper.JisuMapper">
-  <select id="userList" resultType="user" parameterType="String">
-  		SELECT user_id,
-       		   user_pwd
+
+<mapper namespace="com.candle.mapper.JisuMapper">
+	<select id="userList" resultType="user" parameterType="String">
+		SELECT user_id,
+		user_pwd
 		FROM candle_user
 		WHERE user_id=#{userId}
-		AND user_pwd=#{userPwd}		
-  </select>
-  
-  <select id="login" resultType="user">
-  select * 
-  from candle_user
-  where user_id=#{userId}
-  and user_pwd=#{userPwd}
-  
-  </select>
-  
-  	<insert id="insertUser" parameterType="map">
+		AND user_pwd=#{userPwd}
+	</select>
 
-		insert into candle_user values((select max(user_no) + 1 from candle_user),
-		#{userId},#{userPwd},#{userName},#{userTel},#{userEmail},#{userAddress}, 0, 0)
+	<select id="login" resultType="user">
+		select *
+		from candle_user
+		where user_id=#{userId}
+		and user_pwd=#{userPwd}
+
+	</select>
+
+	<insert id="insertUser" parameterType="map">
+		insert into candle_user
+		values((select max(user_no) + 1 from candle_user),
+		#{userId},#{userPwd},#{userName},#{userTel},#{userEmail},#{userAddress},
+		0, 0)
 	</insert>
-  
+
 	<select id="qnaList" resultType="qna">
-	select * 
-    from candle_qna
+		select *
+		from candle_qna
 	</select>
-	
-	<insert id="insertQna" parameterType="map">
 
-    insert into candle_qna values((select nvl(max(qna_no), 0) + 1 from candle_qna),
-		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, null, null, null )
-		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, #{qnaReply}, #{qnaReplyDate}, #{qnaReplyUserNO} );
+	<insert id="insertQna" parameterType="map">
+		insert into candle_qna values((select nvl(max(qna_no), 0) + 1 from
+		candle_qna),
+		#{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, null, null, null )
 	</insert>
 
- 	<select id="qnaInfo" resultType="qna" parameterType="int">
-	select * 
-    from candle_qna
-    where qna_no = #{qnaNo}
+	<select id="qnaInfo" resultType="qna" parameterType="int">
+		select *
+		from candle_qna
+		where qna_no = #{qnaNo}
 	</select>
-	
 
-  </mapper>
+
+</mapper>
   

@@ -25,4 +25,12 @@ public interface SikMapper {
 	public List<ItemVO> selectItemActive();
 	
 	public int insertItem(ItemVO item);
+	
+	public List<OrderVO> selectOrderListAll();
+	
+	public int updateItem(ItemVO item);
+	
+	public ItemVO getItem(int itemNo);
+	
+	public int updateOrderStatus(int orderNo);
 }

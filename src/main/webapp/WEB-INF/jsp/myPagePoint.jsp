@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <div class="col-1"></div>
 <div class="col-6">
-	<h4 class="mb-5 mt-5">포인트 충전</h4>
+	<h4 class="mb-3 mt-3">포인트 충전</h4>
 
 	<hr class="my-4">
 
@@ -22,7 +22,7 @@
 
 	<hr class="my-4">
 
-	<button class="w-100 btn btn-primary btn-lg mb-5"
+	<button class="w-100 btn btn-danger btn-lg mb-5"
 		onclick="addUserPoint()">포인트 충전</button>
 </div>
 <div class="col-5"></div>
@@ -57,26 +57,42 @@ function addUserPoint() {
 	let point = document.querySelector('#add_point').value;
 		
 		if (isNaN(point) || point == 0) {
-			alert('포인트를 정확히 입력해주세요');
-			return;
+			Swal.fire({
+				text : "포인트를 입력해주세요",
+				icon: "warning",
+				confirmButtonText: "확인",
+				confirmButtonColor: "#fd7e14"
+			});
+		} else {
+			fetch('addPoint.do?userNo=' + userNo + "&point=" + point)
+			.then((result) => result.json())
+			.then((result) => {
+				console.log(result);
+				if (result.retCode == 'OK') {
+					Swal.fire({
+						title : "포인트 충전 완료",
+						text : "포인트가 충전되었습니다",
+						icon: "success",
+						confirmButtonText: "확인",
+						confirmButtonColor: "#fd7e14"
+					});
+					document.querySelector('#add_point').value = '';
+					getUserInfo();
+				} else if (result.retCode == 'NG') {
+					Swal.fire({
+						title : "포인트 충전 실패",
+						text : "오류가 지속될 경우 문의해주세요",
+						icon : "error",
+						confirmButtonText: "확인",
+						confirmButtonColor: "#fd7e14",
+						footer: '<a href="qna.do">문의하기</a>'
+					});
+				}
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 		}
-	
-	fetch('addPoint.do?userNo=' + userNo + "&point=" + point)
-	.then((result) => result.json())
-	.then((result) => {
-		console.log(result);
-		if (result.retCode == 'OK') {
-			alert('포인트 충전이 완료되었습니다')
-			document.querySelector('#add_point').value = '';
-			getUserInfo();
-		} else if (result.retCode == 'NG') {
-			alert('포인트 충전이 실패했습니다')
-		}
-	})
-	.catch((error) => {
-		console.log(error);
-	});
-
 }
 
 </script>

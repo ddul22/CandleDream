@@ -46,7 +46,7 @@ public class PointControl implements Control {
 		int r = mapper.point(totalPrice, Integer.parseInt(userNo));
 		// update : order_status 0 > 2
 		if (r > 0) {
-			r = mapper.status(order.getOrderNo());
+			r = mapper.status(totalPrice, order.getOrderNo());
 			if (r > 0) {
 				sqlSession.commit();
 				res.put("retCode", "OK");

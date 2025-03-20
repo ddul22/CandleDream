@@ -9,6 +9,7 @@
 						<thead>
 							<tr>
 								<th>Product</th>
+								<th>Price</th>
 								<th>Quantity</th>
 								<th>Total</th>
 								<th></th>
@@ -32,7 +33,7 @@
 				<div class="cart__total">
 					<h6>Cart total</h6>
 					<ul>
-						<li>Total <span id="total">$ 169.50</span></li>
+						<li>Total <span id="total">0</span></li>
 					</ul>
 					<a href="payment.do" class="primary-btn">Proceed to checkout</a>
 				</div>

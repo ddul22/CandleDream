@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <div class="col-1"></div>
 <div class="col-6">
-	<h4 class="mb-5 mt-5">회원정보 수정</h4>
+	<h4 class="mb-3 mt-3">회원정보 수정</h4>
 
 	<hr class="my-4">
 
@@ -39,7 +39,7 @@
 
 	<hr class="my-4">
 
-	<button class="w-100 btn btn-primary btn-lg mb-5"
+	<button class="w-100 btn btn-danger btn-lg mb-5"
 		onclick="updateUserInfo()">회원정보 수정</button>
 </div>
 <div class="col-5"></div>
@@ -84,10 +84,23 @@ function updateUserInfo() {
 	.then((result) => {
 		console.log(result);
 		if (result.retCode == 'OK') {
-			alert('회원 정보가 수정되었습니다')
+			Swal.fire({
+				title : "회원정보 갱신 완료",
+				text : "회원정보가 갱신되었습니다",
+				icon: "success",
+				confirmButtonText: "확인",
+				confirmButtonColor: "#fd7e14"
+			});
 			getUserInfo();
 		} else if (result.retCode == 'NG') {
-			alert('회원 정보 수정에 실패했습니다')
+			Swal.fire({
+				title : "회원정보 갱신 실패",
+				text : "오류가 지속될 경우 문의해주세요",
+				icon : "error",
+				confirmButtonText: "확인",
+				confirmButtonColor: "#fd7e14",
+				footer: '<a href="qna.do">문의하기</a>'
+			});
 		}
 	})
 	.catch((error) => console.log(error));

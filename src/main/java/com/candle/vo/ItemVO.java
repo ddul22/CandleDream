@@ -20,4 +20,5 @@ public class ItemVO {
 	private String itemInfo;
 	private int userNo;
 	private int orderStatus;
+	private String typeName;
 }

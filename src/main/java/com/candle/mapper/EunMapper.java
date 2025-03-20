@@ -15,7 +15,7 @@ public interface EunMapper {
 	public List<ItemVO> item(int orderNo);
 	public UserVO user(int userNo);
 	public int point(@Param("totalPrice") int totalPrice, @Param("userNo") int userNo);
-	public int status(int orderNo);
+	public int status(@Param("totalPrice") int totalPrice, @Param("orderNo")int orderNo);
 	public int contact(ContactVO contact);
 	public int deleteData(@Param("orderNo") int orderNo, @Param("itemNo") int itemNo);
 }

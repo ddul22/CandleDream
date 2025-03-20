@@ -25,6 +25,7 @@
 	<![CDATA[
 	and   can_b.rn <= #{page} * 4
 	]]>
+	order by item_no desc
 	</select>
 	<select id="getTotalCount" resultType="int" parameterType="search">
 		select count(item_no)
@@ -65,7 +66,7 @@
 		item_no,
 		order_item_count, order_item_price)
 		values ((select
-		max(order_item_no) + 1 from candle_order_item), #{orderNo},
+		nvl(max(order_item_no), 0) + 1 from candle_order_item), #{orderNo},
 		#{itemNo},
 		#{orderItemCount}, #{orderItemPrice})
 	</insert>
@@ -92,7 +93,7 @@
 		then
 		insert (order_item_no, order_no, item_no, order_item_count,
 		order_item_price)
-		values ((select max(order_item_no) + 1 from
+		values ((select nvl(max(order_item_no), 0) + 1 from
 		candle_order_item), #{orderNo},
 		#{itemNo}, #{orderItemCount},
 		#{orderItemPrice})

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <section class="shop spad">
 	<div class="container">
@@ -10,16 +10,16 @@
 				<div class="col-lg-7 col-md-7">
 					<div class="shop__option__search">
 						<form action="product.do" method="get">
-							<select name="searchCondition" id="searchCondition">					
-								<option value="CY">Candle&Yankee</option>
-								<option value="C" >Candle</option>
-								<option value="Y" >Yankee</option>				
-							</select> <input type="text" name="keyword" placeholder="${keyword }">
+							<select name="searchCondition" id="searchCondition">
+								<option value="CY">All</option>
+								<option value="C">Candle</option>
+								<option value="Y">Yankee</option>
+							</select> <input type="text" name="keyword" placeholder="">
 
-							<button type="submit" >
+							<button type="submit">
 								<i class="fa fa-search"></i>
 							</button>
-							
+
 						</form>
 					</div>
 				</div>
@@ -29,23 +29,25 @@
 			<c:forEach items="${product }" var="candle">
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="product__item">
-					<a href = "productDetail.do?itemNo=${candle.itemNo }">
-						<div class="product__item__pic set-bg"
-							data-setbg="${candle.itemImagePath }">
-							<div class="product__label">
-							
-								<span><c:out value="${candle.itemNo }" /></span>
+						<a href="productDetail.do?itemNo=${candle.itemNo }">
+							<div class="product__item__pic set-bg"
+								data-setbg="images/${candle.itemImagePath }">
+								<div class="product__label">
+									<span><c:out
+											value="${candle.typeNo == 1 ? 'CANDLE' : 'YANKEE' }" /></span>
+								</div>
 							</div>
-						</div>
 						</a>
 						<div class="product__item__text">
 							<h6>
-								<a href="#">${candle.itemName }</a>
+								<a href="">${candle.itemName }</a>
 							</h6>
-							<div class="product__item__price">
-							<fmt:formatNumber value="${candle.itemPrice}" type="number" pattern="#,###" var="formattedPrice"/>
-							<c:out value="${formattedPrice}원"/>
-							</div>
+							<h6>
+								<a href=""><fmt:formatNumber value="${candle.itemPrice}"
+										type="number" pattern="#,###" var="formattedPrice" /> <c:out
+										value="${formattedPrice}원" />
+								</a>
+							</h6>
 						</div>
 					</div>
 				</div>

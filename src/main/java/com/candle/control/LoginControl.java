@@ -32,14 +32,14 @@ public class LoginControl implements Control {
 			HttpSession session = req.getSession();
 			session.setAttribute("userNo",user.getUserNo());
 			session.setAttribute("userType",user.getUserType());
-			resp.sendRedirect("main.do"); 
+			session.setAttribute("userId",user.getUserId());
+			req.setAttribute("msg", "1");
 			System.out.println("로그인잘됨");
 		}else {
-			req.setAttribute("msg", "1");
-			req.getRequestDispatcher("candle/login.tiles").forward(req, resp);	
+			req.setAttribute("msg", "2");
 			System.out.println("로그인안됨");
 		}
-		
+		req.getRequestDispatcher("candle/login.tiles").forward(req, resp);	
 		
 	}
 

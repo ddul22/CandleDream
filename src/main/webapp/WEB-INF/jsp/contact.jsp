@@ -22,7 +22,7 @@
 							<input type="text" placeholder="Name" name="cname">
 						</div>
 						<div class="col-lg-6">
-							<input type="text" placeholder="Email" name="cemail">
+							<input type="email" placeholder="Email" name="cemail" required>
 						</div>
 						<div class="col-lg-12">
 							<textarea placeholder="Message" name="cmsg"></textarea>
@@ -37,5 +37,27 @@
 </section>
 
 <script>
+	
+	let msg = '${msg}';
+	
+	if (msg == '1') {
+		msg = '';
+		Swal.fire({
+			  title: "접수 완료",
+			  text : "관심을 가져주셔서 감사합니다",
+			  confirmButtonText: "확인",
+			  confirmButtonColor: "#fd7e14"
+		});
+	} else if (msg == '2') {
+		msg = '';
+		Swal.fire({
+			title : "접수 실패",
+			text : "잠시 후 다시 시도해주세요",
+			icon : "error",
+			confirmButtonText: "확인",
+			confirmButtonColor: "#fd7e14"
+		});
+	} 
+	
 	document.querySelector('#header_contact').className += ' active';
 </script>

@@ -8,7 +8,7 @@
 		select rownum, i.* from
 		(select * from candle_item order by item_no desc) i
 		where rownum
-		between 1 and 3
+		between 1 and 4
 	</select>
 
 	<select id="selectUser" resultType="user" parameterType="int">
@@ -38,6 +38,7 @@
 		* from candle_order 
 		where user_no = #{userNo} 
 		and order_status > 0
+		order by order_no desc
 	</select>
 
 	<select id="getOrderItemList" parameterType="int" resultType="item">
@@ -48,11 +49,38 @@
 	</select>
 	
 	<select id="selectItemActive" resultType="item">
-		select * from candle_item where item_status = 0
+		select * from candle_item 
+		where item_status = 0
+		order by item_no desc
 	</select>
 	
 	<insert id="insertItem" parameterType="item">
-		insert into candle_item values ((select max(item_no) + 1 from candle_item),
-		#{typeNo}, #{itemName}, #{itemImage}, #{itemPrice}, 0, 1, 0, #{itemImagePath}, '')
+		insert into candle_item values ((select nvl(max(item_no), 0) + 1 from candle_item),
+		#{typeNo}, #{itemName}, #{itemImage}, #{itemPrice}, 0, 1, 0, #{itemImagePath}, #{itemInfo})
 	</insert>
+	
+	<select id="selectOrderListAll" resultType="order">
+		select o.*, u.user_id from candle_order o join candle_user u
+        on o.user_no = u.user_no
+		where order_status > 0
+		order by order_no desc
+	</select>
+	
+	<update id="updateItem" parameterType="item">
+		update candle_item
+		set item_name = #{itemName},
+		type_no = #{typeNo},
+		item_image = #{itemImage},
+		item_price = #{itemPrice},
+		item_image_path = nvl(#{itemImagePath}, item_image_path)
+		where item_no = #{itemNo}
+	</update>
+	
+	<select id="getItem" parameterType="int" resultType="item">
+		select * from candle_item where item_no = #{itemNo}
+	</select>
+	
+	<update id="updateOrderStatus" parameterType="int">
+		update candle_order set order_status = 3 where order_no = #{orderNo}
+	</update>
 </mapper>

@@ -2,14 +2,14 @@
 	pageEncoding="UTF-8"%>
 <div class="col-1"></div>
 <div class="col-6">
-	<h4 class="mb-3 mt-3">상품추가</h4>
+	<h4 class="mb-3 mt-3">상품수정</h4>
 
 	<hr class="my-4">
 
 	<div class="row g-3">
 		<div class="col-12 mb-3">
 			<label for="item_name" class="form-label">상품명</label> <input
-				type="text" class="form-control" id="item_name" name="item_name" placeholder=""
+				type="email" class="form-control" id="item_name" placeholder=""
 				required>
 		</div>
 
@@ -23,18 +23,18 @@
 
 		<div class="col-12 mb-3">
 			<label for="item_price" class="form-label">상품가격</label> <input
-				type="number" class="form-control" id="item_price" name="item_price" placeholder=""
+				type="email" class="form-control" id="item_price" placeholder=""
 				required>
 		</div>
 
 		<div class="col-12 mb-3">
 			<label for="item_info" class="form-label">상품설명</label>
-			<textarea class="form-control" id="item_info" name="item_info" placeholder="" required></textarea>
+			<textarea class="form-control" id="item_info" placeholder="" required></textarea>
 		</div>
 
 		<div class="col-12 mb-3">
 			<label for="item_image" class="form-label">상품이미지</label> <input
-				type="file" class="form-control" id="item_image" name="item_image" placeholder=""
+				type="file" class="form-control" id="item_image" placeholder=""
 				required>
 		</div>
 
@@ -42,7 +42,7 @@
 
 	<hr class="my-4">
 
-	<button class="w-100 btn btn-danger btn-lg mb-5" onclick="addItem()">상품추가</button>
+	<button class="w-100 btn btn-danger btn-lg mb-5" onclick="updateItem()">상품수정</button>
 </div>
 <div class="col-5"></div>
 <script>
@@ -50,6 +50,6 @@
 
 	let userNo = '${userNo}';
 
-	console.log(userNo);
+	let itemNo = '${itemNo}';
 </script>
-<script src="js/addItem.js"></script>
+<script src="js/updateItem.js"></script>

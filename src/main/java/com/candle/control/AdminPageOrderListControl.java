@@ -13,24 +13,30 @@ import com.candle.common.Control;
 import com.candle.common.DataSource;
 import com.candle.mapper.SikMapper;
 import com.candle.vo.ItemVO;
+import com.candle.vo.OrderVO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class AdminPageItemListControl implements Control {
+public class AdminPageOrderListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("application/json;charset=utf8");
 		
 		SqlSession sqlSession = DataSource.getInstance().openSession(true);
 		SikMapper mapper = sqlSession.getMapper(SikMapper.class);
-		List<ItemVO> list = mapper.selectItemActive();
 		
-		Gson gson = new GsonBuilder().create();
-		resp.getWriter().print(gson.toJson(list));
+		List<OrderVO> orderList = mapper.selectOrderListAll();
+		
+		for (OrderVO order : orderList) {
+			List<ItemVO> itemList = mapper.getOrderItemList(order.getOrderNo());
+			order.setItemList(itemList);
+		}
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
+		resp.getWriter().print(gson.toJson(orderList));
 	}
 
 }

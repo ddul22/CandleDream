@@ -1,7 +1,6 @@
 package com.candle.control;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,23 +13,23 @@ import com.candle.common.DataSource;
 import com.candle.mapper.SikMapper;
 import com.candle.vo.ItemVO;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-public class AdminPageItemListControl implements Control {
+public class GetItemControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		resp.setContentType("application/json;charset=utf-8");
-		
+
+		String itemNo = req.getParameter("itemNo");
+
 		SqlSession sqlSession = DataSource.getInstance().openSession(true);
 		SikMapper mapper = sqlSession.getMapper(SikMapper.class);
-		List<ItemVO> list = mapper.selectItemActive();
-		
-		Gson gson = new GsonBuilder().create();
-		resp.getWriter().print(gson.toJson(list));
+		ItemVO item = mapper.getItem(Integer.parseInt(itemNo));
 
+		Gson gson = new Gson();
+		resp.getWriter().print(gson.toJson(item));
 	}
 
 }

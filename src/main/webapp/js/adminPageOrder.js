@@ -2,11 +2,9 @@
  * 
  */
 
-console.log(userNo);
-
 getUserInfo();
 
-getOrderInfo();
+getOrderList();
 
 function getUserInfo() {
 
@@ -14,17 +12,16 @@ function getUserInfo() {
 		.then((result) => result.json())
 		.then((result) => {
 			console.log(result);
-			document.querySelector('#nav_user_name').innerText = result.userName + ' 님, 환영합니다';
+			document.querySelector('#nav_user_name').innerHTML = result.userName + ' 님, 환영합니다';
 		})
-		.catch((error) => {
-			console.log(error);
-		});
-
+		.catch((error) => console.log(error));
 }
 
-function getOrderInfo() {
+function getOrderList() {
 
-	fetch('getOrderInfo.do?userNo=' + userNo)
+	document.querySelector('#order_list').innerHTML = '';
+
+	fetch('adminPageOrderList.do')
 		.then((result) => result.json())
 		.then((result) => {
 			console.log(result);
@@ -57,8 +54,6 @@ function drawOrderInfo(orderInfo = []) {
 		order.itemList.forEach((item, index, array) => {
 
 			sum += item.orderItemCount * item.orderItemPrice;
-			
-			console.log(sum);
 
 			if (index == 0) {
 				itemNames = item.itemName;
@@ -81,8 +76,8 @@ function drawOrderInfo(orderInfo = []) {
 			</div>
 		</td>
 	</tr>`
-		let statusStr = '';	
-	
+		let statusStr = '';
+
 		if (order.orderStatus == 1) {
 			statusStr = '주문취소';
 		} else if (order.orderStatus == 2) {
@@ -92,20 +87,49 @@ function drawOrderInfo(orderInfo = []) {
 		} else if (order.orderStatus == 4) {
 			statusStr = '배송완료';
 		}
-	
+
 		let html1 = `
 			<tr data-toggle="collapse" data-target="#order${order.orderNo}"
 			class="accordion-toggle">
 			<td>${order.orderNo}</td>
+			<td>${order.userId}</td>
 			<td>${itemNames}</td>
 			<td>${sum}</td>
 			<td>${order.orderDate}</td>
 			<td>${statusStr}</td>
+			<td>${order.orderStatus == 2 ? `<button class="btn btn-danger" onclick="updateOrderStatus('${order.orderNo}')">배송처리</button>` : ''}</td>
 		</tr>`;
 
 		let html = html1 + html2;
-		console.log(html);
 
 		document.querySelector('#order_list').insertAdjacentHTML('beforeend', html);
 	});
+}
+
+function updateOrderStatus(orderNo) {
+	fetch('updateOrderStatus.do?orderNo=' + orderNo)
+		.then((result) => result.json())
+		.then((result) => {
+			if (result.retCode == 'OK') {
+				getOrderList();
+			} else if (result.retCode == 'NG') {
+				Swal.fire({
+					title: "배송처리 실패",
+					text: "배송처리 중 오류가 발생했습니다",
+					icon: "error",
+					confirmButtonText: "확인",
+					confirmButtonColor: "#fd7e14"
+				});
+			}
+		})
+		.catch((error) => {
+			console.log(error)
+			Swal.fire({
+				title: "배송처리 실패",
+				text: "배송처리 중 오류가 발생했습니다",
+				icon: "error",
+				confirmButtonText: "확인",
+				confirmButtonColor: "#fd7e14"
+			});
+		});
 }

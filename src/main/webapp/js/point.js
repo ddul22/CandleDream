@@ -10,17 +10,63 @@ const pointService = {
 document.querySelector('#confirm_payment').addEventListener('click', (event) => {
 
 	if (sum > point) {
-		alert('포인트가 부족합니다!');
-		return;
+
+		Swal.fire({
+			title: "포인트가 부족합니다",
+			text: "포인트 충전페이지로 이동하시겠습니까?",
+			confirmButtonText: "이동",
+			confirmButtonColor: "#fd7e14",
+			showCancelButton: true,
+			cancelButtonText: "취소"
+		}).then((result) => {
+			if (result.isConfirmed) {
+				window.location.href = 'myPagePoint.do';
+			}
+		});
+	} else {
+
+		Swal.fire({
+			title: "결제 확인",
+			text: "결제를 진행하시겠습니까?",
+			confirmButtonText: "확인",
+			confirmButtonColor: "#fd7e14",
+			showCancelButton: true,
+			cancelButtonText: "취소"
+		}).then((result) => {
+			if (result.isConfirmed) {
+				pointService.get((result) => {
+					console.log(result);
+					if (result.retCode == 'OK') {
+						Swal.fire({
+							title: "결제 완료",
+							text: "구매해주셔서 감사합니다",
+							confirmButtonText: "확인",
+							confirmButtonColor: "#fd7e14",
+						}).then((result) => {
+							window.location.href = 'myPageOrder.do';
+						});
+					} else if (result.retCode == 'NG') {
+						Swal.fire({
+							title: "결제 실패",
+							text: "오류가 지속될 경우 문의해주세요",
+							icon: "error",
+							confirmButtonText: "확인",
+							confirmButtonColor: "#fd7e14",
+							footer: '<a href="qna.do">문의하기</a>'
+						});
+					}
+				}, (error) => {
+					console.log(error);
+					Swal.fire({
+						title: "결제 실패",
+						text: "오류가 지속될 경우 문의해주세요",
+						icon: "error",
+						confirmButtonText: "확인",
+						confirmButtonColor: "#fd7e14",
+						footer: '<a href="qna.do">문의하기</a>'
+					});
+				})
+			}
+		});
 	}
-
-	pointService.get((result) => {
-		console.log(result);
-		alert("결제가 완료되었습니다!")
-		window.location.href = "main.do";
-	}, (error) => {
-		console.log(error);
-		alert("결제 중 오류가 발생했습니다.")
-	})
-
 })

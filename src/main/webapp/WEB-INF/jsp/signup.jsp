@@ -4,11 +4,11 @@
 	<div class="row">
 		<div class="col-3"></div>
 		<div class="col-6">
-			<h4 class="mb-5 mt-5">회원가입</h4>
+			<h4 class="mb-3 mt-3">회원가입</h4>
 
 			<hr class="my-4">
 
-			<form action="addUser.do">
+			<form action="addUser.do" id="add_user_form">
 				<div class="row g-3">
 					<div class="col-12 mb-3">
 						<label for="user_name" class="form-label">이름</label> <input
@@ -35,13 +35,13 @@
 					</div>
 
 					<div class="col-12 mb-3">
-						<label for="user_tel" class="form-label">전화번호</label> <input
+						<label for="user_tel" class="form-label">연락처</label> <input
 							type="text" class="form-control" id="user_tel" placeholder=""
 							required name="userTel">
 					</div>
 
 					<div class="col-12 mb-3">
-						<label for="user_address" class="form-label">주소</label> <input
+						<label for="user_address" class="form-label">주소 (배송지)</label> <input
 							type="text" class="form-control" id="user_address" placeholder=""
 							required name="userAddress">
 					</div>
@@ -56,11 +56,15 @@
 
 				<hr class="my-4">
 
-				<button class="w-100 btn btn-primary btn-lg mb-3" type="submit">회원가입</button>
-				<button class="w-100 btn btn-primary btn-lg mb-3"
+				<button class="w-100 btn btn-danger btn-lg mb-3" type="submit">회원가입</button>
+				<button class="w-100 btn btn-secondary btn-lg mb-3"
 					onclick="document.location='main.do'">취소</button>
 			</form>
 		</div>
 		<div class="col-3"></div>
 	</div>
 </div>
+
+<script>
+	
+</script>

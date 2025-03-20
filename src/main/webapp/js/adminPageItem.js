@@ -12,7 +12,7 @@ function getUserInfo() {
 		.then((result) => result.json())
 		.then((result) => {
 			console.log(result);
-			document.querySelector('#nav_user_name').innerText = result.userName + ' 님, 환영합니다';
+			document.querySelector('#nav_user_name').innerHTML = result.userName + ' 님, 환영합니다';
 		})
 		.catch((error) => console.log(error));
 }
@@ -23,10 +23,9 @@ function getItemList() {
 		.then((result) => {
 			console.log(result);
 			result.forEach((item) => {
-				let html = `<tr>
+				let html = `<tr onclick="updateItem(${item.itemNo})">
 				<td>${item.itemNo}</td>
-				<td><img src=""/></td>
-				<td>${item.itemType == 1 ? 'CANDLE' : 'YANKEE'}</td>
+				<td>${item.typeNo == 1 ? 'CANDLE' : 'YANKEE'}</td>
 				<td>${item.itemName}</td>
 				<td>${item.itemPrice}</td>
 				<td>${item.itemStatus == 0 ? '판매 중' : '삭제됨'}</td>
@@ -38,6 +37,6 @@ function getItemList() {
 		.catch((error) => console.log(error));
 }
 
-function addUserItem() {
-
+function updateItem(itemNo) {
+	window.location.href= 'updateItem.do?itemNo=' + itemNo;
 }

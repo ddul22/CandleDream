@@ -25,5 +25,11 @@
 
 <script>
 	document.querySelector('#header_main').className += ' active';
+	
+	setInterval(myTimer, 5000);
+
+	function myTimer() {
+	  document.querySelector('.owl-next').click();
+	}
 </script>
 <script src="js/candleMain.js"></script>

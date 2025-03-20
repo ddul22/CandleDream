@@ -22,10 +22,12 @@ import com.candle.control.AddUserFormControl;
 import com.candle.control.AdminPageItemControl;
 import com.candle.control.AdminPageItemListControl;
 import com.candle.control.AdminPageOrderControl;
+import com.candle.control.AdminPageOrderListControl;
 import com.candle.control.CartControl;
 import com.candle.control.CartDataControl;
 import com.candle.control.ContactControl;
 import com.candle.control.ContactDataControl;
+import com.candle.control.GetItemControl;
 import com.candle.control.GetOrderInfoControl;
 import com.candle.control.GetUserInfoControl;
 import com.candle.control.LoginControl;
@@ -47,6 +49,9 @@ import com.candle.control.QnaInfoControl;
 import com.candle.control.QnaReplyControl;
 import com.candle.control.QnaControl;
 import com.candle.control.RemoveDataControl;
+import com.candle.control.UpdateItemControl;
+import com.candle.control.UpdateItemDataControl;
+import com.candle.control.UpdateOrderStatusControl;
 import com.candle.control.UpdateUserInfoControl;
 
 import com.candle.control.AddUserFormControl;
@@ -83,9 +88,13 @@ public class FrontController extends HttpServlet {
 		map.put("/adminPageItem.do", new AdminPageItemControl());
 		map.put("/adminPageOrder.do", new AdminPageOrderControl());
 		map.put("/adminPageItemList.do", new AdminPageItemListControl());
+		map.put("/adminPageOrderList.do", new AdminPageOrderListControl());
 		map.put("/addItem.do", new AddItemControl());
 		map.put("/addItemData.do", new AddItemDataControl());
-		
+		map.put("/updateItem.do", new UpdateItemControl());
+		map.put("/updateItemData.do", new UpdateItemDataControl());
+		map.put("/getItem.do", new GetItemControl());
+		map.put("/updateOrderStatus.do", new UpdateOrderStatusControl());
 
 		// 김어진
 		map.put("/product.do", new ProductControl()); // 전체상품목록. 카테고리별 상품조회.

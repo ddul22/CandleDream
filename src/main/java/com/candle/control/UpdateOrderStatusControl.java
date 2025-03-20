@@ -1,7 +1,6 @@
 package com.candle.control;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,38 +13,20 @@ import org.apache.ibatis.session.SqlSession;
 import com.candle.common.Control;
 import com.candle.common.DataSource;
 import com.candle.mapper.SikMapper;
-import com.candle.vo.ItemVO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class AddItemDataControl implements Control {
+public class UpdateOrderStatusControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		req.setCharacterEncoding("utf-8");
-
-		String saveDir = req.getServletContext().getRealPath("images");
-
-		System.out.println(saveDir);
-		MultipartRequest mr = new MultipartRequest(req, saveDir, 1024 * 1024 * 5, "utf-8",
-				new DefaultFileRenamePolicy());
-
-		ItemVO item = new ItemVO();
-
-		item.setItemName(mr.getParameter("itemName"));
-		item.setTypeNo(Integer.parseInt(mr.getParameter("typeNo")));
-		item.setItemPrice(Integer.parseInt(mr.getParameter("itemPrice")));
-		item.setItemInfo(mr.getParameter("itemInfo"));
-		item.setItemImagePath(mr.getFilesystemName("itemImage"));
-		item.setItemImage(Files.readAllBytes(mr.getFile("itemImage").toPath()));
+		String orderNo = req.getParameter("orderNo");
 
 		SqlSession sqlSession = DataSource.getInstance().openSession(true);
 		SikMapper mapper = sqlSession.getMapper(SikMapper.class);
-		int result = mapper.insertItem(item);
+		int result = mapper.updateOrderStatus(Integer.parseInt(orderNo));
 
 		Map<String, String> resultMap = new HashMap<>();
 		if (result > 0) {
@@ -53,8 +34,9 @@ public class AddItemDataControl implements Control {
 		} else {
 			resultMap.put("retCode", "NG");
 		}
-
+		
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(resultMap));
 	}
+
 }

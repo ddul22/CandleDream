@@ -2,15 +2,14 @@
 	pageEncoding="UTF-8"%>
 <div class="col-1"></div>
 <div class="col-11">
-	<h4 class="mb-5 mt-5">주문 내역</h4>
+	<h4 class="mb-3 mt-3">상품관리</h4>
 
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<table class="table able-striped">
+			<table class="table text-center">
 				<thead>
 					<tr>
 						<th>상품번호</th>
-						<th>상품이미지</th>
 						<th>상품분류</th>
 						<th>상품명</th>
 						<th>상품가격</th>
@@ -24,7 +23,7 @@
 	</div>
 	<hr class="my-4">
 
-	<button class="w-100 btn btn-primary btn-lg mb-5"
+	<button class="w-25 btn btn-danger btn-lg mb-5"
 		onclick="window.location.href='addItem.do'">상품추가</button>
 </div>
 <script>

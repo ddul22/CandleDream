@@ -13,4 +13,5 @@ public class OrderVO {
 	private int orderStatus;
 	private int orderPrice;
 	private List<ItemVO> itemList;
+	private String userId;
 }

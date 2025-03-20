@@ -27,7 +27,10 @@
  </update>
  
  <update id="status" parameterType="int">
- 	update candle_order set order_status = 2 where order_no = #{orderNo}
+ 	update candle_order 
+ 	set order_status = 2,
+ 	order_price = #{totalPrice}
+ 	where order_no = #{orderNo}
  </update>
  
  <insert id="contact" parameterType="contact">
