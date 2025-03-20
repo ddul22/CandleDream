@@ -22,7 +22,9 @@ public interface JisuMapper {
 	//qna 게시판
 	public List <QnaVO> qnaList();
 	
-	public int insertQna (QnaVO qnavo);
+	public int insertQna (Map<String, Object> qnaInfo);
+	
+	public QnaVO qnaInfo(int qnano);
 	
 	
 }

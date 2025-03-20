@@ -31,12 +31,16 @@
     from candle_qna
 	</select>
 	
-	<insert id="insertQna" parameterType="qna">
+	<insert id="insertQna" parameterType="map">
 
     insert into candle_qna values((select max(qna_no) + 1 from candle_qna),
-		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, #{qnaReply}, #{qnaReplyDate}, #{qnaReplyUserNO} );
+		 #{userNo}, #{qnaTitle}, #{qnaContent}, sysdate, null, null, null )
+	</insert>
 	
-	
- 
+ 	<select id="qnaInfo" resultType="qna" parameterType="int">
+	select * 
+    from candle_qna
+    where qna_no = #{qnaNo}
+	</select>
   
   </mapper>

@@ -15,6 +15,8 @@ import com.candle.control.AddCartControl;
 import com.candle.control.AddPointControl;
 import com.candle.control.AddUserControl;
 import com.candle.control.AddUserFormControl;
+import com.candle.control.AdminPageItemControl;
+import com.candle.control.AdminPageOrderControl;
 import com.candle.control.CartControl;
 import com.candle.control.CartDataControl;
 import com.candle.control.ContactControl;
@@ -36,13 +38,9 @@ import com.candle.control.ProductControl;
 import com.candle.control.ProductDetailControl;
 import com.candle.control.QnaAddControl;
 import com.candle.control.QnaAddFormControl;
+import com.candle.control.QnaInfoControl;
 import com.candle.control.QnaControl;
 import com.candle.control.UpdateUserInfoControl;
-
-import com.candle.control.SearchControl;
-import com.candle.control.AddUserFormControl;
-import com.candle.control.AdminPageItemControl;
-import com.candle.control.AdminPageOrderControl;
 
 
 public class FrontController extends HttpServlet {
@@ -95,6 +93,8 @@ public class FrontController extends HttpServlet {
 		map.put("/qna.do", new QnaControl()); // qna목록조회
 		map.put("/qnaAddForm.do", new QnaAddFormControl()); //qna등록화면
 		map.put("/qnaAdd.do", new QnaAddControl()); // qna등록처리
+		map.put("/qnaInfo.do", new QnaInfoControl()); //qna등록내용
+		
 		
 		
 		
