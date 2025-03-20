@@ -30,13 +30,14 @@
 		user_address = #{userAddress},
 		user_email =
 		#{userEmail}
-		where user_no =
-		#{userNo}
+		where user_no = #{userNo}
 	</update>
 
 	<select id="getOrderList" parameterType="int" resultType="order">
 		select
-		* from candle_order where user_no = #{userNo}
+		* from candle_order 
+		where user_no = #{userNo} 
+		and order_status > 0
 	</select>
 
 	<select id="getOrderItemList" parameterType="int" resultType="item">

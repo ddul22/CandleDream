@@ -46,6 +46,8 @@
 
 <script>
 
+document.querySelector('#my_page_info').className += ' active';
+
 let userNo = '${userNo}';
 
 console.log(userNo);

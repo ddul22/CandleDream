@@ -43,3 +43,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
+	
+<script>
+	document.querySelector('#header_qna').className += ' active';
+</script>

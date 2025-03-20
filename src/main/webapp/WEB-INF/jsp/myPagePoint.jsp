@@ -29,6 +29,8 @@
 
 <script>
 
+document.querySelector('#my_page_point').className += ' active';
+
 let userNo = '${userNo}';
 
 console.log(userNo);

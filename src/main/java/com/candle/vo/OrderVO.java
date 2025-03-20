@@ -9,7 +9,7 @@ import lombok.Data;
 public class OrderVO {
 	private int orderNo;
 	private int userNo;
-	private Date date;
+	private Date orderDate;
 	private int orderStatus;
 	private int orderPrice;
 	private List<ItemVO> itemList;
