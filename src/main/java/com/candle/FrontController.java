@@ -12,10 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.candle.common.Control;
 import com.candle.control.AddCartControl;
+import com.candle.control.AddItemControl;
+import com.candle.control.AddItemDataControl;
 import com.candle.control.AddPointControl;
 import com.candle.control.AddUserControl;
 import com.candle.control.AddUserFormControl;
 import com.candle.control.AdminPageItemControl;
+import com.candle.control.AdminPageItemListControl;
+
 import com.candle.control.AdminPageOrderControl;
 import com.candle.control.CartControl;
 import com.candle.control.CartDataControl;
@@ -68,6 +72,10 @@ public class FrontController extends HttpServlet {
 		// 관리자페이지
 		map.put("/adminPageItem.do", new AdminPageItemControl());
 		map.put("/adminPageOrder.do", new AdminPageOrderControl());
+		map.put("/adminPageItemList.do", new AdminPageItemListControl());
+		map.put("/addItem.do", new AddItemControl());
+		map.put("/addItemData.do", new AddItemDataControl());
+		
 
 		// 김어진
 		map.put("/product.do", new ProductControl()); // 전체상품목록. 카테고리별 상품조회.
