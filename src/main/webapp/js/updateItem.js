@@ -42,6 +42,8 @@ function updateItem() {
 	let itemInfo = document.querySelector('#item_info').value;
 	let itemImage = document.querySelector('#item_image').files[0];
 
+	console.log(itemInfo);
+		
 	body.append('itemNo', itemNo);
 	body.append('itemName', itemName);
 	body.append('typeNo', typeNo);

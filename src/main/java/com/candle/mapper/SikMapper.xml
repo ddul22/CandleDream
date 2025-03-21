@@ -72,7 +72,8 @@
 		type_no = #{typeNo},
 		item_image = #{itemImage},
 		item_price = #{itemPrice},
-		item_image_path = nvl(#{itemImagePath}, item_image_path)
+		item_image_path = nvl(#{itemImagePath}, item_image_path),
+		item_info = #{itemInfo}
 		where item_no = #{itemNo}
 	</update>
 	

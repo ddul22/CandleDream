@@ -66,5 +66,28 @@
 </div>
 
 <script>
+	let form = document.querySelector('#add_user_form');
 	
+	form.addEventListener('submit', (event) => {
+		event.preventDefault();
+		
+		let pwd = document.querySelector('#user_pwd').value;
+		let pwdConfirm = document.querySelector('#user_pwd_confirm').value;
+		
+		console.log(pwd, pwdConfirm);
+		
+		if (pwd != pwdConfirm) {
+			Swal.fire({
+				title : "비밀번호 불일치",
+				text : "입력한 비밀번호가 일치하지 않습니다",
+				icon : "warning",
+				confirmButtonText: "확인",
+				confirmButtonColor: "#fd7e14"
+			});
+			return;
+		} else {
+			form.submit();
+		}
+			
+	});
 </script>

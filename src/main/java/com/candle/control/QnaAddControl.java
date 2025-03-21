@@ -20,7 +20,9 @@ public class QnaAddControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		
+		req.setCharacterEncoding("utf-8");
+		
 		String title = req.getParameter("qnaTitle");
 		String content = req.getParameter("qnaContent");
 		String userNo = req.getParameter("userNo");
