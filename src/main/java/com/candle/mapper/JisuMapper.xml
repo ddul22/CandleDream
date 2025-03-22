@@ -19,6 +19,11 @@
 		and user_pwd=#{userPwd}
 
 	</select>
+	
+	<select id="checkUserId" parameterType="String">
+		select count(user_id) from candle_user
+		where user_id = #{userId}
+	</select>
 
 	<insert id="insertUser" parameterType="map">
 		insert into candle_user

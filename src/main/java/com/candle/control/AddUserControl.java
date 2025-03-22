@@ -26,23 +26,30 @@ public class AddUserControl implements Control {
 		String tel = req.getParameter("userTel");
 		String email = req.getParameter("userEmail");
 		String address = req.getParameter("userAddress");
-
-		Map<String, Object> userInfo = new HashMap<String, Object>();
-		userInfo.put("userId", id);
-		userInfo.put("userPwd", pwd);
-		userInfo.put("userName", name);
-		userInfo.put("userTel", tel);
-		userInfo.put("userEmail", email);
-		userInfo.put("userAddress", address);
-
+		
 		SqlSession sqlSession = DataSource.getInstance().openSession(true);
 		JisuMapper mapper = sqlSession.getMapper(JisuMapper.class);
-		int result = mapper.insertUser(userInfo);
+
+		int result = mapper.checkUserId(id);
+
 		if (result > 0) {
-			resp.sendRedirect("loginForm.do");
+			req.setAttribute("msg", "사용할 수 없는 아이디입니다");
+			req.getRequestDispatcher("candle/signup.tiles").forward(req, resp);
 		} else {
-			resp.sendRedirect("addUserForm.do");
+			Map<String, Object> userInfo = new HashMap<String, Object>();
+			userInfo.put("userId", id);
+			userInfo.put("userPwd", pwd);
+			userInfo.put("userName", name);
+			userInfo.put("userTel", tel);
+			userInfo.put("userEmail", email);
+			userInfo.put("userAddress", address);
+			
+			result = mapper.insertUser(userInfo);
+			if (result > 0) {
+				resp.sendRedirect("loginForm.do");
+			} else {
+				resp.sendRedirect("addUserForm.do");
+			}
 		}
 	}
-
 }

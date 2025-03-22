@@ -66,6 +66,18 @@
 </div>
 
 <script>
+
+	let msg = '${msg}';
+	
+	if (msg != null && msg != '') {
+		Swal.fire({
+			text : msg,
+			icon : "warning",
+			confirmButtonText: "확인",
+			confirmButtonColor: "#fd7e14"
+		});
+	}
+	
 	let form = document.querySelector('#add_user_form');
 	
 	form.addEventListener('submit', (event) => {

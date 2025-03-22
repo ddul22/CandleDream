@@ -17,7 +17,9 @@ public interface JisuMapper {
 	public  UserVO login (@Param("userId") String userId,@Param("userPwd") String userPwd);
 	
 	//회원가입
+	public int checkUserId(String userId);
 	public int insertUser (Map<String, Object> userInfo);
+	
 	
 	//qna 게시판
 	public List <QnaVO> qnaList();
@@ -25,7 +27,6 @@ public interface JisuMapper {
 	public int insertQna (Map<String, Object> qnaInfo);
 	
 	public QnaVO qnaInfo(int qnano);
-	
 	
 	
 	
